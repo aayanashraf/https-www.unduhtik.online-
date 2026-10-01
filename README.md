@@ -24,7 +24,7 @@ slideshow/ZIP support, proxy downloads, legal pages, SEO + schema markup.
 
 ## Sebelum publish
 
-1. Ganti URL `https://unduhtik.up.railway.app/` di `public/index.html` (meta tags + 
+1. Ganti URL `https://www.unduhtik.online/` di `public/index.html` (meta tags + 
    JSON-LD) dengan domain asli Anda jika sudah beli domain
 2. Ganti email placeholder di `public/contact.html`
 3. Isi slot iklan (`class="ad-slot"` di index.html) dengan kode iklan asli

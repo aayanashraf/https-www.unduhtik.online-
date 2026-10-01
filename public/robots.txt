@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://unduhtik.up.railway.app/sitemap.xml
+Sitemap: https://www.unduhtik.online/sitemap.xml
