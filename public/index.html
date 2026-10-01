@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UnduhTik - Unduh Video TikTok Tanpa Watermark Gratis (HD)</title>
+  <meta name="description" content="UnduhTik membantu Anda mengunduh video TikTok tanpa watermark secara gratis, cepat, dan tanpa perlu instal aplikasi." />
+  <meta name="keywords" content="download video tiktok, unduh tiktok tanpa watermark, tiktok downloader, download tiktok mp3, unduh video tiktok hd, tiktok tanpa logo" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#ff0050" />
+  <link rel="canonical" href="https://unduhtik.up.railway.app/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="UnduhTik" />
+  <meta property="og:title" content="UnduhTik - Unduh Video TikTok Tanpa Watermark Gratis (HD)" />
+  <meta property="og:description" content="Unduh video TikTok tanpa watermark secara gratis, cepat, dan tanpa perlu instal aplikasi." />
+  <meta property="og:url" content="https://unduhtik.up.railway.app/" />
+  <meta property="og:image" content="https://unduhtik.up.railway.app/og-image.png" />
+  <meta property="og:locale" content="id_ID" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="UnduhTik - Unduh Video TikTok Tanpa Watermark Gratis (HD)" />
+  <meta name="twitter:description" content="Unduh video TikTok tanpa watermark secara gratis, cepat, dan tanpa perlu instal aplikasi." />
+  <meta name="twitter:image" content="https://unduhtik.up.railway.app/og-image.png" />
+
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "UnduhTik",
+    "url": "https://unduhtik.up.railway.app/",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "inLanguage": "id",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "IDR" },
+    "description": "UnduhTik membantu Anda mengunduh video TikTok tanpa watermark secara gratis, cepat, dan tanpa perlu instal aplikasi."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Apakah UnduhTik gratis digunakan?", "acceptedAnswer": { "@type": "Answer", "text": "Ya, UnduhTik sepenuhnya gratis dan tidak memerlukan pendaftaran." } },
+      { "@type": "Question", "name": "Di mana video TikTok disimpan setelah diunduh?", "acceptedAnswer": { "@type": "Answer", "text": "Video akan tersimpan di folder unduhan (Downloads) default perangkat Anda." } },
+      { "@type": "Question", "name": "Apakah bisa mengunduh video TikTok di iPhone?", "acceptedAnswer": { "@type": "Answer", "text": "Ya, UnduhTik bekerja langsung dari browser Safari maupun Chrome di iPhone." } },
+      { "@type": "Question", "name": "Apakah saya perlu menginstal aplikasi?", "acceptedAnswer": { "@type": "Answer", "text": "Tidak. UnduhTik berjalan sepenuhnya di browser, tanpa instalasi apa pun." } },
+      { "@type": "Question", "name": "Apakah UnduhTik menyimpan video saya?", "acceptedAnswer": { "@type": "Answer", "text": "Tidak. UnduhTik tidak menyimpan video apa pun di server kami." } },
+      { "@type": "Question", "name": "Kenapa video TikTok saya tidak bisa diunduh?", "acceptedAnswer": { "@type": "Answer", "text": "Pastikan video bersifat publik (bukan privat) dan tautannya lengkap. Jika masih gagal, coba salin ulang tautan dari aplikasi TikTok lalu coba lagi beberapa saat kemudian." } },
+      { "@type": "Question", "name": "Apakah bisa mengunduh audio saja (MP3)?", "acceptedAnswer": { "@type": "Answer", "text": "Bisa. Setelah video diproses, pilih tombol Unduh MP3 / Audio untuk menyimpan suaranya saja." } },
+      { "@type": "Question", "name": "Apakah boleh memakai video yang diunduh?", "acceptedAnswer": { "@type": "Answer", "text": "Video tetap milik kreator aslinya. Gunakan untuk keperluan pribadi, dan minta izin kreator jika ingin mengunggah ulang atau memakainya secara komersial." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div id="inAppWarning" class="in-app-warning hidden">
+    <span data-id="Anda membuka ini dari aplikasi TikTok/Instagram. Unduhan bisa gagal. Ketuk titik tiga (⋮) lalu pilih 'Buka di Browser'." data-en="You're viewing this inside the TikTok/Instagram app. Downloads may fail. Tap the (⋮) menu and choose 'Open in Browser'.">
+      Anda membuka ini dari aplikasi TikTok/Instagram. Unduhan bisa gagal. Ketuk titik tiga (⋮) lalu pilih 'Buka di Browser'.
+    </span>
+    <button id="closeInAppWarning" aria-label="Close">×</button>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">⬇️</span>
+        <span class="logo-text">UnduhTik</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" data-id="Beranda" data-en="Home">Beranda</a>
+        <a href="#cara-unduh" data-id="Cara Unduh" data-en="How to Download">Cara Unduh</a>
+        <a href="#faq" data-id="FAQ" data-en="FAQ">FAQ</a>
+        <a href="contact.html" data-id="Kontak" data-en="Contact">Kontak</a>
+      </nav>
+
+      <div class="header-right">
+        <select id="langSwitcher" class="lang-switcher">
+          <option value="id">🇮🇩 Bahasa Indonesia</option>
+          <option value="en">🇬🇧 English</option>
+        </select>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="ad-slot ad-header">
+    <span class="ad-label">Advertisement</span>
+  </div>
+
+  <main>
+    <section class="hero">
+      <h1 data-id="Unduh Video TikTok Tanpa Watermark Gratis (HD)" data-en="Download TikTok Videos Without Watermark for Free (HD)">Unduh Video TikTok Tanpa Watermark Gratis (HD)</h1>
+      <p class="hero-subtitle" data-id="Tempel link video TikTok di bawah ini dan unduh dalam hitungan detik." data-en="Paste your TikTok video link below and download it in seconds.">Tempel link video TikTok di bawah ini dan unduh dalam hitungan detik.</p>
+
+      <div class="tool-box">
+        <div class="input-row">
+          <input type="text" id="tiktokUrl" data-id-placeholder="Tempel link video TikTok di sini..." data-en-placeholder="Paste TikTok video link here..." placeholder="Tempel link video TikTok di sini..." />
+          <button id="pasteBtn" class="btn-paste" data-id="Tempel" data-en="Paste">Tempel</button>
+        </div>
+        <button id="downloadBtn" class="btn-main" data-id="Unduh" data-en="Download">Unduh</button>
+
+        <div id="result" class="result hidden">
+          <img id="cover" src="" alt="cover" />
+          <h3 id="videoTitle"></h3>
+          <p id="videoAuthor"></p>
+
+          <div class="result-buttons">
+            <a id="downloadNoWm" class="btn-result primary" download target="_blank">
+              <span data-id="Video Tanpa Watermark (HD)" data-en="Video Without Watermark (HD)">Video Tanpa Watermark (HD)</span>
+            </a>
+            <a id="downloadWm" class="btn-result secondary hidden" download target="_blank">
+              <span data-id="Video Dengan Watermark" data-en="Video With Watermark">Video Dengan Watermark</span>
+            </a>
+            <a id="downloadMusic" class="btn-result tertiary hidden" download target="_blank">
+              <span data-id="Unduh MP3 / Audio" data-en="Download MP3 / Audio">Unduh MP3 / Audio</span>
+            </a>
+            <button id="copyLinkBtn" class="btn-result copy-btn">
+              <span data-id="Salin Link Unduhan" data-en="Copy Download Link">Salin Link Unduhan</span>
+            </button>
+          </div>
+
+          <div class="ad-slot ad-result">
+            <span class="ad-label">Advertisement</span>
+          </div>
+        </div>
+
+        <div id="slideshowResult" class="slideshow-result hidden">
+          <h3 id="slideshowTitle"></h3>
+          <p id="slideshowAuthor"></p>
+          <p class="slideshow-note" data-id="Ini adalah slideshow foto TikTok. Unduh setiap foto satu per satu, atau semuanya sekaligus:" data-en="This is a TikTok photo slideshow. Download each photo one by one, or all at once:">Ini adalah slideshow foto TikTok. Unduh setiap foto satu per satu, atau semuanya sekaligus:</p>
+          <div id="slideshowGrid" class="slideshow-grid"></div>
+          <a id="downloadSlideshowMusic" class="btn-result tertiary hidden" download target="_blank">
+            <span data-id="Unduh MP3 / Audio" data-en="Download MP3 / Audio">Unduh MP3 / Audio</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="ad-slot ad-below-box">
+      <span class="ad-label">Advertisement</span>
+    </div>
+
+    <section class="guide-section" id="cara-unduh">
+      <h2 data-id="Cara Mengunduh Video TikTok" data-en="How to Download TikTok Videos">Cara Mengunduh Video TikTok</h2>
+      <div class="guide-steps">
+        <div class="guide-step">
+          <div class="step-number">1</div>
+          <h3 data-id="Salin Tautan" data-en="Copy the Link">Salin Tautan</h3>
+          <p data-id="Buka aplikasi TikTok dan salin tautan video (Copy Link)." data-en="Open the TikTok app and copy the video link.">Buka aplikasi TikTok dan salin tautan video (Copy Link).</p>
+        </div>
+        <div class="guide-step">
+          <div class="step-number">2</div>
+          <h3 data-id="Tempel Tautan" data-en="Paste the Link">Tempel Tautan</h3>
+          <p data-id="Tempelkan tautan ke dalam kotak di UnduhTik." data-en="Paste the link into the UnduhTik input box.">Tempelkan tautan ke dalam kotak di UnduhTik.</p>
+        </div>
+        <div class="guide-step">
+          <div class="step-number">3</div>
+          <h3 data-id="Unduh" data-en="Download">Unduh</h3>
+          <p data-id="Klik tombol Unduh dan pilih format tanpa watermark." data-en="Click the Download button and choose the no-watermark format.">Klik tombol Unduh dan pilih format tanpa watermark.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="features-section">
+      <h2 data-id="Fitur Utama UnduhTik" data-en="Key Features of UnduhTik">Fitur Utama UnduhTik</h2>
+      <ul class="features-list">
+        <li>
+          <strong data-id="Gratis Selamanya" data-en="Free Forever">Gratis Selamanya</strong>
+          <span data-id="Tidak perlu daftar atau bayar." data-en="No registration or payment required.">Tidak perlu daftar atau bayar.</span>
+        </li>
+        <li>
+          <strong data-id="Tanpa Watermark" data-en="No Watermark">Tanpa Watermark</strong>
+          <span data-id="Kualitas video bersih HD." data-en="Clean HD video quality.">Kualitas video bersih HD.</span>
+        </li>
+        <li>
+          <strong data-id="Mendukung Foto Slideshow" data-en="Supports Photo Slideshows">Mendukung Foto Slideshow</strong>
+          <span data-id="Unduh postingan foto TikTok satu per satu atau sekaligus (ZIP)." data-en="Download TikTok photo posts one by one or all at once (ZIP).">Unduh postingan foto TikTok satu per satu atau sekaligus (ZIP).</span>
+        </li>
+        <li>
+          <strong data-id="Kompatibel" data-en="Compatible">Kompatibel</strong>
+          <span data-id="Bisa digunakan di Android, iPhone, PC, dan Tablet." data-en="Works on Android, iPhone, PC, and Tablet.">Bisa digunakan di Android, iPhone, PC, dan Tablet.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="seo-content">
+      <h2 data-id="Unduh Video TikTok Tanpa Watermark dengan UnduhTik" data-en="Download TikTok Videos Without Watermark with UnduhTik">Unduh Video TikTok Tanpa Watermark dengan UnduhTik</h2>
+      <p data-id="UnduhTik adalah alat online gratis untuk mengunduh video TikTok tanpa watermark. Cukup tempel tautan video, klik tombol Unduh, dan video siap disimpan ke perangkat Anda dalam hitungan detik. Tidak perlu daftar akun dan tidak perlu instal aplikasi tambahan." data-en="UnduhTik is a free online tool for downloading TikTok videos without a watermark. Just paste the video link, click Download, and your video is ready to save in seconds. No account and no extra app needed.">UnduhTik adalah alat online gratis untuk mengunduh video TikTok tanpa watermark. Cukup tempel tautan video, klik tombol Unduh, dan video siap disimpan ke perangkat Anda dalam hitungan detik. Tidak perlu daftar akun dan tidak perlu instal aplikasi tambahan.</p>
+
+      <h3 data-id="Mengapa Memilih UnduhTik?" data-en="Why Choose UnduhTik?">Mengapa Memilih UnduhTik?</h3>
+      <p data-id="Banyak orang ingin menyimpan video TikTok favorit untuk ditonton offline atau dijadikan referensi. UnduhTik hadir dengan tampilan sederhana, proses cepat, dan hasil video bersih tanpa logo TikTok yang mengganggu. Semua fitur dapat digunakan gratis tanpa batas." data-en="Many people want to save their favorite TikTok videos to watch offline or use as reference. UnduhTik offers a simple interface, fast processing, and clean video without the distracting TikTok logo. All features are free with no limits.">Banyak orang ingin menyimpan video TikTok favorit untuk ditonton offline atau dijadikan referensi. UnduhTik hadir dengan tampilan sederhana, proses cepat, dan hasil video bersih tanpa logo TikTok yang mengganggu. Semua fitur dapat digunakan gratis tanpa batas.</p>
+
+      <h3 data-id="Unduh Video HD dan Audio MP3" data-en="Download HD Video and MP3 Audio">Unduh Video HD dan Audio MP3</h3>
+      <p data-id="Selain video tanpa watermark, Anda juga bisa mengunduh video dengan watermark atau mengambil audionya saja dalam format MP3. Fitur ini berguna jika Anda hanya menyukai musik atau suara dari sebuah video TikTok." data-en="Besides watermark-free video, you can also download the video with the watermark or extract just the audio as MP3. This is handy if you only like the music or sound from a TikTok video.">Selain video tanpa watermark, Anda juga bisa mengunduh video dengan watermark atau mengambil audionya saja dalam format MP3. Fitur ini berguna jika Anda hanya menyukai musik atau suara dari sebuah video TikTok.</p>
+
+      <h3 data-id="Bisa Dipakai di Semua Perangkat" data-en="Works on Every Device">Bisa Dipakai di Semua Perangkat</h3>
+      <p data-id="UnduhTik berjalan langsung di browser, sehingga bisa digunakan di Android, iPhone, laptop, PC, maupun tablet. Cukup buka situs ini, tidak ada yang perlu diinstal." data-en="UnduhTik runs directly in your browser, so it works on Android, iPhone, laptop, PC, and tablet. Just open the site, nothing to install.">UnduhTik berjalan langsung di browser, sehingga bisa digunakan di Android, iPhone, laptop, PC, maupun tablet. Cukup buka situs ini, tidak ada yang perlu diinstal.</p>
+    </section>
+
+    <section class="faq-section" id="faq">
+      <h2 data-id="Pertanyaan Umum" data-en="Frequently Asked Questions">Pertanyaan Umum</h2>
+
+      <details>
+        <summary data-id="Apakah UnduhTik gratis digunakan?" data-en="Is UnduhTik free to use?">Apakah UnduhTik gratis digunakan?</summary>
+        <p data-id="Ya, UnduhTik sepenuhnya gratis dan tidak memerlukan pendaftaran." data-en="Yes, UnduhTik is completely free and requires no registration.">Ya, UnduhTik sepenuhnya gratis dan tidak memerlukan pendaftaran.</p>
+      </details>
+      <details>
+        <summary data-id="Di mana video TikTok disimpan setelah diunduh?" data-en="Where is the video saved after downloading?">Di mana video TikTok disimpan setelah diunduh?</summary>
+        <p data-id="Video akan tersimpan di folder unduhan (Downloads) default perangkat Anda." data-en="The video will be saved to your device's default Downloads folder.">Video akan tersimpan di folder unduhan (Downloads) default perangkat Anda.</p>
+      </details>
+      <details>
+        <summary data-id="Apakah bisa mengunduh video TikTok di iPhone?" data-en="Can I download TikTok videos on iPhone?">Apakah bisa mengunduh video TikTok di iPhone?</summary>
+        <p data-id="Ya, UnduhTik bekerja langsung dari browser Safari maupun Chrome di iPhone." data-en="Yes, UnduhTik works directly from Safari or Chrome on iPhone.">Ya, UnduhTik bekerja langsung dari browser Safari maupun Chrome di iPhone.</p>
+      </details>
+      <details>
+        <summary data-id="Apakah saya perlu menginstal aplikasi?" data-en="Do I need to install an app?">Apakah saya perlu menginstal aplikasi?</summary>
+        <p data-id="Tidak. UnduhTik berjalan sepenuhnya di browser, tanpa instalasi apa pun." data-en="No. UnduhTik runs entirely in your browser, no installation needed.">Tidak. UnduhTik berjalan sepenuhnya di browser, tanpa instalasi apa pun.</p>
+      </details>
+      <details>
+        <summary data-id="Apakah UnduhTik menyimpan video saya?" data-en="Does UnduhTik store my videos?">Apakah UnduhTik menyimpan video saya?</summary>
+        <p data-id="Tidak. UnduhTik tidak menyimpan video apa pun di server kami." data-en="No. UnduhTik does not store any videos on our servers.">Tidak. UnduhTik tidak menyimpan video apa pun di server kami.</p>
+      </details>
+      <details>
+        <summary data-id="Kenapa video TikTok saya tidak bisa diunduh?" data-en="Why can't my TikTok video be downloaded?">Kenapa video TikTok saya tidak bisa diunduh?</summary>
+        <p data-id="Pastikan video bersifat publik (bukan privat) dan tautannya lengkap. Jika masih gagal, coba salin ulang tautan dari aplikasi TikTok lalu coba lagi beberapa saat kemudian." data-en="Make sure the video is public (not private) and the link is complete. If it still fails, copy the link again from the TikTok app and try again a little later.">Pastikan video bersifat publik (bukan privat) dan tautannya lengkap. Jika masih gagal, coba salin ulang tautan dari aplikasi TikTok lalu coba lagi beberapa saat kemudian.</p>
+      </details>
+      <details>
+        <summary data-id="Apakah bisa mengunduh audio saja (MP3)?" data-en="Can I download audio only (MP3)?">Apakah bisa mengunduh audio saja (MP3)?</summary>
+        <p data-id="Bisa. Setelah video diproses, pilih tombol Unduh MP3 / Audio untuk menyimpan suaranya saja." data-en="Yes. After the video is processed, choose the Download MP3 / Audio button to save just the sound.">Bisa. Setelah video diproses, pilih tombol Unduh MP3 / Audio untuk menyimpan suaranya saja.</p>
+      </details>
+      <details>
+        <summary data-id="Apakah bisa mengunduh foto slideshow TikTok?" data-en="Can I download TikTok photo slideshows?">Apakah bisa mengunduh foto slideshow TikTok?</summary>
+        <p data-id="Bisa. Jika tautan yang Anda tempel adalah postingan foto, UnduhTik akan menampilkan setiap foto, lengkap dengan opsi unduh semuanya sekaligus dalam file ZIP." data-en="Yes. If the link you paste is a photo post, UnduhTik will display each photo, with an option to download them all at once as a ZIP file.">Bisa. Jika tautan yang Anda tempel adalah postingan foto, UnduhTik akan menampilkan setiap foto, lengkap dengan opsi unduh semuanya sekaligus dalam file ZIP.</p>
+      </details>
+      <details>
+        <summary data-id="Apakah boleh memakai video yang diunduh?" data-en="Can I use the videos I download?">Apakah boleh memakai video yang diunduh?</summary>
+        <p data-id="Video tetap milik kreator aslinya. Gunakan untuk keperluan pribadi, dan minta izin kreator jika ingin mengunggah ulang atau memakainya secara komersial." data-en="Videos remain the property of their original creators. Use them for personal purposes, and ask the creator for permission before reposting or using them commercially.">Video tetap milik kreator aslinya. Gunakan untuk keperluan pribadi, dan minta izin kreator jika ingin mengunggah ulang atau memakainya secara komersial.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-text">UnduhTik</span>
+        <p data-id="UnduhTik tidak berafiliasi dengan TikTok. Kami tidak menyimpan video apa pun di server kami." data-en="UnduhTik is not affiliated with TikTok. We do not store any videos on our servers.">UnduhTik tidak berafiliasi dengan TikTok. Kami tidak menyimpan video apa pun di server kami.</p>
+      </div>
+      <div class="footer-links">
+        <a href="terms.html" data-id="Syarat dan Ketentuan" data-en="Terms of Service">Syarat dan Ketentuan</a>
+        <a href="privacy.html" data-id="Kebijakan Privasi" data-en="Privacy Policy">Kebijakan Privasi</a>
+        <a href="dmca.html" data-id="Penolakan Hak Cipta" data-en="Copyright Disclaimer">Penolakan Hak Cipta</a>
+        <a href="contact.html" data-id="Hubungi Kami" data-en="Contact Us">Hubungi Kami</a>
+      </div>
+      <p class="footer-copy">© 2026 UnduhTik. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
