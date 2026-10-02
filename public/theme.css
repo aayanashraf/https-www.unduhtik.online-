@@ -1,0 +1,126 @@
+/* ===== UnduhTik dark theme ===== */
+:root{
+  color-scheme:dark;
+  --bg:#0b0f19;
+  --surface:rgba(255,255,255,0.05);
+  --surface-solid:#121829;
+  --text:#e6e9f2;
+  --text-muted:#c2c9de;
+  --cyan:#00f2fe;
+  --magenta:#ff007f;
+  --grad:linear-gradient(90deg,#00f2fe,#ff007f);
+  --on-grad:#0b0f19;
+}
+
+html,body{background:var(--bg) !important;color:var(--text)}
+body{min-height:100vh}
+main,.hero,.guide-section,.features-section,.seo-content,.faq-section{background:transparent !important}
+h1,h2,h3{color:#fff}
+main p,.site-footer p,.features-list span,.hero-subtitle,.slideshow-note{color:var(--text-muted)}
+a{color:var(--cyan)}
+::selection{background:rgba(255,0,127,.45);color:#fff}
+
+/* Focus (accessibility) */
+a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible,input:focus-visible{
+  outline:2px solid var(--cyan);outline-offset:3px}
+
+/* ===== Header ===== */
+.site-header,.site-header-lite{
+  background:rgba(11,15,25,.82) !important;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,242,254,.18);
+  box-shadow:0 1px 0 rgba(255,0,127,.12)}
+.logo,.site-header-lite .logo{color:#fff}
+.logo-text .b-u{color:#fff}
+.logo-text .b-t{background:var(--grad);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent}
+.main-nav a{color:var(--text-muted);text-decoration:none;transition:color .2s}
+.main-nav a:hover{color:var(--cyan)}
+.main-nav.open{background:#0f1423}
+.hamburger{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:8px}
+.lang-switcher{background:#121829;color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:8px}
+.lang-switcher option{background:#121829;color:#fff}
+
+/* ===== Hero + glow ===== */
+.hero{position:relative;overflow:hidden;isolation:isolate}
+.hero::before,.hero::after{
+  content:"";position:absolute;z-index:-1;pointer-events:none;
+  width:440px;height:440px;border-radius:50%;
+  opacity:.15;filter:blur(110px)}
+.hero::before{background:var(--cyan);left:6%;top:28%}
+.hero::after{background:var(--magenta);right:6%;top:40%}
+
+/* ===== Glass cards ===== */
+.tool-box,.result,.guide-step,.features-list li,.faq-section details,.toast{
+  background:
+    linear-gradient(rgba(18,24,41,.72),rgba(18,24,41,.72)) padding-box,
+    linear-gradient(135deg,rgba(0,242,254,.55),rgba(255,0,127,.55)) border-box;
+  border:1px solid transparent;
+  border-radius:16px;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:0 8px 32px rgba(0,0,0,.35)}
+.tool-box .result{box-shadow:none}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .tool-box,.result,.guide-step,.features-list li,.faq-section details,.toast{
+    background:
+      linear-gradient(#121829,#121829) padding-box,
+      linear-gradient(135deg,rgba(0,242,254,.55),rgba(255,0,127,.55)) border-box}}
+
+/* ===== Input ===== */
+#tiktokUrl,input[type="text"]{
+  background:rgba(255,255,255,.06);color:#fff;
+  border:1px solid rgba(255,255,255,.16);border-radius:12px;
+  transition:border-color .2s,box-shadow .2s}
+#tiktokUrl::placeholder{color:#a9b0c6;opacity:1}
+#tiktokUrl:focus{
+  border-color:var(--cyan);
+  box-shadow:0 0 0 3px rgba(0,242,254,.25),0 0 22px rgba(255,0,127,.28)}
+.input-error{border-color:#ff5c7a !important;box-shadow:0 0 0 3px rgba(255,92,122,.25) !important}
+
+/* ===== Buttons ===== */
+.btn-main,.btn-result.primary{
+  background:var(--grad);color:var(--on-grad);font-weight:700;border:0;border-radius:12px;
+  cursor:pointer;text-decoration:none;
+  transition:transform .15s,box-shadow .2s,filter .2s}
+.btn-main:hover,.btn-result.primary:hover{
+  transform:translateY(-1px);filter:brightness(1.08);
+  box-shadow:0 6px 24px rgba(0,242,254,.28),0 6px 24px rgba(255,0,127,.28)}
+.btn-main:disabled,.btn-result.primary:disabled{opacity:.7;cursor:wait;transform:none}
+.btn-paste,.btn-result.secondary,.btn-result.tertiary,.btn-result.copy-btn{
+  background:
+    linear-gradient(#121829,#121829) padding-box,
+    var(--grad) border-box;
+  color:#fff;border:1px solid transparent;border-radius:12px;cursor:pointer;
+  text-decoration:none;transition:transform .15s,box-shadow .2s}
+.btn-paste:hover,.btn-result.secondary:hover,.btn-result.tertiary:hover,.btn-result.copy-btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 6px 22px rgba(0,242,254,.22),0 6px 22px rgba(255,0,127,.22)}
+.btn-spinner{border:2px solid rgba(11,15,25,.3);border-top-color:var(--on-grad)}
+
+/* ===== Slideshow ===== */
+.slide-card{background:#121829;border:1px solid rgba(255,255,255,.12)}
+.slide-download{background:rgba(11,15,25,.88);color:#fff;border:1px solid rgba(0,242,254,.4)}
+.slide-download:hover{background:var(--grad);color:var(--on-grad);border-color:transparent}
+
+/* ===== Guide / FAQ / misc ===== */
+.step-number{background:var(--grad);color:var(--on-grad);font-weight:800}
+.faq-section summary{color:#fff;cursor:pointer}
+.faq-section details[open]{box-shadow:0 8px 32px rgba(0,242,254,.12)}
+.toast{color:#fff}
+
+/* ===== Ads: label dibhi dikhe, ad content jaisa-ka-taisa rahe ===== */
+.ad-slot{background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.2);border-radius:10px}
+.ad-label{color:#a9b0c6;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+
+/* ===== Footer ===== */
+.site-footer{background:#080b13;border-top:1px solid rgba(0,242,254,.15)}
+.footer-links a{color:var(--text-muted);text-decoration:none}
+.footer-links a:hover{color:var(--cyan)}
+.footer-copy{color:#a9b0c6}
+
+@media (max-width:640px){
+  .hero::before,.hero::after{width:260px;height:260px;filter:blur(80px)}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important;animation-duration:.01ms !important}
+}
