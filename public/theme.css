@@ -135,3 +135,11 @@ h2,h3,.hero h2,.guide-section h2,.features-section h2,.seo-content h2,.faq-secti
   color:#fff !important;
   -webkit-text-fill-color:#fff !important}
 .hero-subtitle{color:#c2c9de !important}
+/* ===== Cards aur sections ka text: purane dark rang ko override karta hai ===== */
+main h2,main h3,main h4{
+  color:#fff !important;
+  -webkit-text-fill-color:#fff !important}
+main p,main li{
+  color:#c2c9de !important;
+  -webkit-text-fill-color:#c2c9de !important}
+main details summary{color:#fff !important}
