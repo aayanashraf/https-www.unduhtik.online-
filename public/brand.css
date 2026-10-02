@@ -1,0 +1,7 @@
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo-svg{display:block;flex:none;width:36px;height:36px}
+.logo-text{font-weight:800;letter-spacing:-0.5px;background:none;-webkit-text-fill-color:currentColor}
+.logo-text .b-u{color:inherit}
+.logo-text .b-t{background:linear-gradient(90deg,#25F4EE,#FE2C55);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.site-header-lite{background:#111;padding:12px 20px}
+.site-header-lite .logo{color:#fff;font-size:22px}
