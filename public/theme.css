@@ -143,3 +143,14 @@ main p,main li{
   color:#c2c9de !important;
   -webkit-text-fill-color:#c2c9de !important}
 main details summary{color:#fff !important}
+/* ===== Icon + h3 + p wale cards ko dark glass banao (white background hataya) ===== */
+main :is(div,article,li,section):has(> h3 + p){
+  background:
+    linear-gradient(rgba(18,24,41,.88),rgba(18,24,41,.88)) padding-box,
+    linear-gradient(135deg,rgba(0,242,254,.55),rgba(255,0,127,.55)) border-box !important;
+  border:1px solid transparent !important;
+  border-radius:16px !important;
+  box-shadow:0 8px 32px rgba(0,0,0,.35) !important;
+  padding:20px}
+main :is(div,article,li,section):has(> h3 + p) h3{color:#fff !important}
+main :is(div,article,li,section):has(> h3 + p) p{color:#c2c9de !important}
