@@ -124,3 +124,14 @@ a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible,
 @media (prefers-reduced-motion:reduce){
   *{transition:none !important;animation-duration:.01ms !important}
 }
+/* ===== Headings fix: purane specific rules ko override karta hai ===== */
+h1,.hero h1,main h1{
+  color:#fff !important;
+  -webkit-text-fill-color:#fff !important;
+  background:none !important;
+  text-shadow:0 2px 28px rgba(0,242,254,.25)}
+h2,h3,.hero h2,.guide-section h2,.features-section h2,.seo-content h2,.faq-section h2,
+.guide-step h3,.seo-content h3,.result h3,.slideshow-result h3{
+  color:#fff !important;
+  -webkit-text-fill-color:#fff !important}
+.hero-subtitle{color:#c2c9de !important}
