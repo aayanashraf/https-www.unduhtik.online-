@@ -1,3 +1,13 @@
+// ---------- Analytics helper ----------
+// window.track didefinisikan di <head> (index.html). Aman dipanggil walau GA4 belum termuat.
+function trackEvent(name, params) {
+  try {
+    if (typeof window.track === "function") window.track(name, params || {});
+  } catch {
+    // ignore
+  }
+}
+
 // ---------- Language ----------
 const LANG_KEY = "unduhtik_lang";
 const langSwitcher = document.getElementById("langSwitcher");
@@ -17,6 +27,9 @@ const MESSAGES = {
     linkCopied: "Link berhasil disalin!",
     copyFailed: "Gagal menyalin link.",
     downloadAllZip: "⬇️ Unduh Semua (ZIP)",
+    close: "Tutup",
+    openMenu: "Buka menu",
+    closeMenu: "Tutup menu",
   },
   en: {
     processing: "Processing...",
@@ -32,6 +45,9 @@ const MESSAGES = {
     linkCopied: "Link copied!",
     copyFailed: "Couldn't copy the link.",
     downloadAllZip: "⬇️ Download All (ZIP)",
+    close: "Close",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
   },
 };
 
@@ -44,7 +60,7 @@ function getLang() {
 }
 
 function t(key, arg) {
-  const msg = MESSAGES[getLang()][key];
+  const msg = (MESSAGES[getLang()] || MESSAGES.id)[key];
   return typeof msg === "function" ? msg(arg) : msg;
 }
 
@@ -58,6 +74,11 @@ function applyLanguage(lang) {
   });
   document.documentElement.lang = lang;
   if (langSwitcher) langSwitcher.value = lang;
+  const closeWarn = document.getElementById("closeInAppWarning");
+  if (closeWarn) closeWarn.setAttribute("aria-label", t("close"));
+  const zip = document.getElementById("downloadZipBtn");
+  if (zip && !zip.disabled) zip.textContent = t("downloadAllZip");
+  syncMenuLabel();
 }
 
 if (langSwitcher) {
@@ -72,17 +93,25 @@ if (langSwitcher) {
   });
 }
 
-applyLanguage(getLang());
-
 // ---------- Mobile nav ----------
 const hamburgerBtn = document.getElementById("hamburgerBtn");
 const mainNav = document.getElementById("mainNav");
 
+function syncMenuLabel() {
+  if (!hamburgerBtn || !mainNav) return;
+  const open = mainNav.classList.contains("open");
+  hamburgerBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  hamburgerBtn.setAttribute("aria-label", open ? t("closeMenu") : t("openMenu"));
+}
+
 if (hamburgerBtn && mainNav) {
   hamburgerBtn.addEventListener("click", () => {
     mainNav.classList.toggle("open");
+    syncMenuLabel();
   });
 }
+
+applyLanguage(getLang());
 
 // ---------- In-app browser warning ----------
 (function checkInAppBrowser() {
@@ -103,6 +132,7 @@ if (hamburgerBtn && mainNav) {
 
   if (isInApp && !dismissed) {
     banner.classList.remove("hidden");
+    trackEvent("in_app_browser_warning");
   }
 
   if (closeBtn) {
@@ -134,6 +164,7 @@ function showToast(message, type) {
   toast.innerHTML = "";
 
   const icon = document.createElement("span");
+  icon.setAttribute("aria-hidden", "true");
   icon.textContent = type === "success" ? "✅" : "⚠️";
 
   const text = document.createElement("span");
@@ -143,7 +174,7 @@ function showToast(message, type) {
   const close = document.createElement("button");
   close.className = "toast-close";
   close.type = "button";
-  close.setAttribute("aria-label", "Close");
+  close.setAttribute("aria-label", t("close"));
   close.textContent = "×";
   close.addEventListener("click", hideToast);
 
@@ -166,6 +197,7 @@ const pasteBtn = document.getElementById("pasteBtn");
 const result = document.getElementById("result");
 const slideshowResult = document.getElementById("slideshowResult");
 const slideshowGrid = document.getElementById("slideshowGrid");
+const statusEl = document.getElementById("status");
 
 function extractUrl(text) {
   const match = text.match(/https?:\/\/[^\s]+/i);
@@ -183,22 +215,22 @@ function buildProxyUrl(remoteUrl, filename, type) {
 function validateInput(raw) {
   const text = raw.trim();
 
-  if (!text) return { ok: false, message: t("empty") };
+  if (!text) return { ok: false, reason: "empty", message: t("empty") };
 
   const candidate = extractUrl(text);
-  if (!candidate) return { ok: false, message: t("notUrl") };
+  if (!candidate) return { ok: false, reason: "not_url", message: t("notUrl") };
 
   let parsed;
   try {
     parsed = new URL(candidate);
   } catch {
-    return { ok: false, message: t("notUrl") };
+    return { ok: false, reason: "not_url", message: t("notUrl") };
   }
 
   const host = parsed.hostname.replace(/^www\./, "").toLowerCase();
   const isTikTok = host === "tiktok.com" || host.endsWith(".tiktok.com");
 
-  if (!isTikTok) return { ok: false, message: t("notTiktok", host) };
+  if (!isTikTok) return { ok: false, reason: "not_tiktok", message: t("notTiktok", host) };
 
   return { ok: true, url: parsed.href };
 }
@@ -207,6 +239,8 @@ function setLoading(isLoading) {
   downloadBtn.disabled = isLoading;
   pasteBtn.disabled = isLoading;
   downloadBtn.classList.toggle("is-loading", isLoading);
+  downloadBtn.setAttribute("aria-busy", isLoading ? "true" : "false");
+  if (statusEl) statusEl.textContent = isLoading ? t("processing") : "";
 
   if (isLoading) {
     downloadBtn.innerHTML = "";
@@ -235,8 +269,14 @@ pasteBtn.addEventListener("click", async () => {
 });
 
 downloadBtn.addEventListener("click", handleDownload);
-urlInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") handleDownload();
+urlInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    if (!downloadBtn.disabled) {
+      trackEvent("download_click", { method: "enter" });
+      handleDownload();
+    }
+  }
 });
 
 async function copyToClipboard(text) {
@@ -253,9 +293,12 @@ function renderVideo(data) {
 
   const safeTitle = (data.title || "unduhtik-video").slice(0, 40);
 
-  document.getElementById("cover").src = data.cover;
+  const cover = document.getElementById("cover");
+  cover.onerror = () => cover.removeAttribute("src");
+  if (data.cover) cover.src = data.cover;
+  else cover.removeAttribute("src");
   document.getElementById("videoTitle").textContent = data.title || t("defaultTitle");
-  document.getElementById("videoAuthor").textContent = t("by") + data.author;
+  document.getElementById("videoAuthor").textContent = t("by") + (data.author || "");
 
   const noWmBtn = document.getElementById("downloadNoWm");
   noWmBtn.href = buildProxyUrl(data.noWatermarkUrl, safeTitle, "video");
@@ -289,7 +332,7 @@ function renderSlideshow(data) {
   const safeTitle = (data.title || "unduhtik-slideshow").slice(0, 40);
 
   document.getElementById("slideshowTitle").textContent = data.title || t("defaultTitle");
-  document.getElementById("slideshowAuthor").textContent = t("by") + data.author;
+  document.getElementById("slideshowAuthor").textContent = t("by") + (data.author || "");
 
   data.images.forEach((imgUrl, i) => {
     const card = document.createElement("div");
@@ -299,10 +342,14 @@ function renderSlideshow(data) {
     img.src = imgUrl;
     img.alt = `Slide ${i + 1}`;
     img.loading = "lazy";
+    img.decoding = "async";
 
     const btn = document.createElement("a");
     btn.href = buildProxyUrl(imgUrl, `${safeTitle}-${i + 1}`, "image");
     btn.className = "slide-download";
+    btn.setAttribute("download", "");
+    btn.setAttribute("data-track", "slideshow_download_image");
+    btn.setAttribute("aria-label", `Download slide ${i + 1}`);
     btn.textContent = `⬇️ ${i + 1}`;
 
     card.append(img, btn);
@@ -323,6 +370,7 @@ function renderSlideshow(data) {
     zipBtn.id = "downloadZipBtn";
     zipBtn.type = "button";
     zipBtn.className = "btn-result primary zip-btn";
+    zipBtn.setAttribute("data-track", "slideshow_download_zip");
     slideshowGrid.insertAdjacentElement("afterend", zipBtn);
   }
   zipBtn.textContent = t("downloadAllZip");
@@ -342,8 +390,10 @@ function renderSlideshow(data) {
       link.href = URL.createObjectURL(blob);
       link.download = `${safeTitle}.zip`;
       link.click();
-      URL.revokeObjectURL(link.href);
+      setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+      trackEvent("zip_success");
     } catch {
+      trackEvent("zip_error");
       showToast(t("generic"));
     } finally {
       zipBtn.disabled = false;
@@ -355,6 +405,8 @@ function renderSlideshow(data) {
 }
 
 async function handleDownload() {
+  if (downloadBtn.disabled) return;
+
   result.classList.add("hidden");
   slideshowResult.classList.add("hidden");
   hideToast();
@@ -364,11 +416,13 @@ async function handleDownload() {
   if (!check.ok) {
     urlInput.classList.add("input-error");
     showToast(check.message);
+    trackEvent("download_invalid_input", { reason: check.reason });
     return;
   }
 
   urlInput.classList.remove("input-error");
   setLoading(true);
+  trackEvent("download_request");
 
   try {
     const res = await fetch("/api/download", {
@@ -381,16 +435,20 @@ async function handleDownload() {
 
     if (!res.ok) {
       showToast(data.error || t("generic"));
+      trackEvent("download_error", { reason: "api", status: res.status });
       return;
     }
 
     if (data.type === "slideshow" && data.images && data.images.length > 0) {
       renderSlideshow(data);
+      trackEvent("download_success", { content_type: "slideshow" });
     } else {
       renderVideo(data);
+      trackEvent("download_success", { content_type: "video" });
     }
   } catch {
     showToast(t("network"));
+    trackEvent("download_error", { reason: "network" });
   } finally {
     setLoading(false);
   }
