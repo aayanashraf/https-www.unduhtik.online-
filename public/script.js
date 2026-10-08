@@ -206,8 +206,15 @@ function extractUrl(text) {
   return null;
 }
 
+// Perbaiki URL rusak seperti "https://www.tikwm.comhttps://v16m.tiktokcdn-us.com/..."
+function cleanRemoteUrl(u) {
+  if (!u) return u;
+  return String(u).replace(/^https?:\/\/[^\/?#]*?(?=https?:\/\/)/i, "");
+}
+
 function buildProxyUrl(remoteUrl, filename, type) {
   if (!remoteUrl) return "#";
+  remoteUrl = cleanRemoteUrl(remoteUrl);
   const params = new URLSearchParams({ url: remoteUrl, filename, type });
   return "/api/proxy-download?" + params.toString();
 }
@@ -320,7 +327,7 @@ function renderVideo(data) {
   }
 
   const copyBtn = document.getElementById("copyLinkBtn");
-  copyBtn.onclick = () => copyToClipboard(data.noWatermarkUrl || data.hdUrl || "");
+  copyBtn.onclick = () => copyToClipboard(cleanRemoteUrl(data.noWatermarkUrl || data.hdUrl || ""));
 
   result.classList.remove("hidden");
 }
