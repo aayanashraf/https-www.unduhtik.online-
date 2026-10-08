@@ -781,3 +781,11 @@ a {
 .ad-result{min-height:250px}
 .seo-links{margin:12px 0}
 :focus-visible{outline:2px solid #00f2fe;outline-offset:2px}
+/* Paste button fix (mobile) */
+.input-row{display:flex;align-items:stretch;gap:8px;width:100%}
+.input-row input{flex:1 1 auto;min-width:0;height:48px;min-height:0;font-size:16px;padding:0 12px}
+.btn-paste{flex:0 0 auto;width:auto;height:48px;min-height:0;padding:0 14px;font-size:14px;line-height:1;white-space:nowrap}
+
+@media (max-width:480px){
+  .btn-paste{padding:0 12px;font-size:13px}
+}
