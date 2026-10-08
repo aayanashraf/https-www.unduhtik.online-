@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.unduhtik.online/sitemap-unduhtik.xml
+Sitemap: https://www.unduhtik.online/sitemap.xml
