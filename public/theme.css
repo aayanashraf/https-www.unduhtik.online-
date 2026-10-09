@@ -94,3 +94,5 @@ body{
   .main-nav{display:none}
   .tool-box{padding:16px}
 }
+
+.site-header{position:static !important;}
