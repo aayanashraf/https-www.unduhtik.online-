@@ -381,6 +381,25 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok", cacheSize: cache.size, time: new Date().toISOString() });
 });
 
+// Cover image proxy (hotlink / expiry se bachne ke liye)
+app.get("/api/proxy-image", async (req, res) => {
+  try {
+    const u = new URL(String(req.query.url || ""));
+    const okHost = /(^|\.)(tikwm\.com|tiktokcdn\.com|tiktokcdn-us\.com|tiktokv\.com|byteoversea\.com|ibytedtos\.com|muscdn\.com)$/i.test(u.hostname);
+    if (!/^https?:$/.test(u.protocol) || !okHost) return res.status(400).send("Bad URL");
+
+    const r = await fetch(u.href, {
+      headers: { "User-Agent": "Mozilla/5.0", "Referer": "https://www.tikwm.com/" },
+    });
+    if (!r.ok) return res.status(502).send("Upstream error");
+
+    res.set("Content-Type", r.headers.get("content-type") || "image/jpeg");
+    res.set("Cache-Control", "public, max-age=3600");
+    res.send(Buffer.from(await r.arrayBuffer()));
+  } catch (e) {
+    res.status(500).send("Error");
+  }
+});
 app.listen(PORT, () => {
   console.log(`Server chal raha hai: http://localhost:${PORT}`);
 });

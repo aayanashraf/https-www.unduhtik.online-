@@ -302,7 +302,7 @@ function renderVideo(data) {
 
   const cover = document.getElementById("cover");
   cover.onerror = () => cover.removeAttribute("src");
-  if (data.cover) cover.src = data.cover;
+  if (data.cover) cover.src = "/api/proxy-image?url=" + encodeURIComponent(data.cover);
   else cover.removeAttribute("src");
   document.getElementById("videoTitle").textContent = data.title || t("defaultTitle");
   document.getElementById("videoAuthor").textContent = t("by") + (data.author || "");
