@@ -1,0 +1,13 @@
+
+/* Dynamic Auto Theme Animation for UnduhTik */
+@keyframes DynamicGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.auto-theme-bg {
+  background: linear-gradient(-45deg, #1e1b4b, #311b92, #4a148c, #004d40, #0d47a1);
+  background-size: 400% 400%;
+  animation: DynamicGradient 12s ease infinite;
+}
