@@ -1,17 +1,16 @@
 {
   "name": "unduhtik",
   "version": "1.0.0",
-  "description": "UnduhTik - Unduh Video TikTok Tanpa Watermark Gratis",
+  "private": true,
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18"
   },
   "dependencies": {
     "archiver": "^7.0.1",
-    "compression": "^1.8.2",
     "express": "^4.19.2"
   }
 }
