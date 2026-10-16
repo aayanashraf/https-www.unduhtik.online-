@@ -1,5 +1,4 @@
 // ---------- Analytics helper ----------
-// window.track didefinisikan di <head> (index.html). Aman dipanggil walau GA4 belum termuat.
 function trackEvent(name, params) {
   try {
     if (typeof window.track === "function") window.track(name, params || {});
@@ -8,10 +7,8 @@ function trackEvent(name, params) {
   }
 }
 
-// ---------- Language ----------
-const LANG_KEY = "unduhtik_lang";
-const langSwitcher = document.getElementById("langSwitcher");
-
+// ---------- Messages ----------
+// id/en: bawaan di bawah. Bahasa lain: dikirim oleh halaman lewat window.UT_MSG.
 const MESSAGES = {
   id: {
     processing: "Memproses...",
@@ -51,67 +48,43 @@ const MESSAGES = {
   },
 };
 
-function getLang() {
-  try {
-    return localStorage.getItem(LANG_KEY) || "id";
-  } catch {
-    return "id";
-  }
-}
+const PAGE_LANG = (document.documentElement.lang || "id").slice(0, 2).toLowerCase();
 
 function t(key, arg) {
-  const msg = (MESSAGES[getLang()] || MESSAGES.id)[key];
-  return typeof msg === "function" ? msg(arg) : msg;
-}
-
-function applyLanguage(lang) {
-  document.querySelectorAll("[data-id][data-en]").forEach((el) => {
-    if (el.classList.contains("is-loading")) return;
-    el.textContent = lang === "en" ? el.dataset.en : el.dataset.id;
-  });
-  document.querySelectorAll("[data-id-placeholder][data-en-placeholder]").forEach((el) => {
-    el.placeholder = lang === "en" ? el.dataset.enPlaceholder : el.dataset.idPlaceholder;
-  });
-  document.documentElement.lang = lang;
-  if (langSwitcher) langSwitcher.value = lang;
-  const closeWarn = document.getElementById("closeInAppWarning");
-  if (closeWarn) closeWarn.setAttribute("aria-label", t("close"));
-  const zip = document.getElementById("downloadZipBtn");
-  if (zip && !zip.disabled) zip.textContent = t("downloadAllZip");
-  syncMenuLabel();
-}
-
-if (langSwitcher) {
-  langSwitcher.addEventListener("change", () => {
-    const lang = langSwitcher.value;
-    try {
-      localStorage.setItem(LANG_KEY, lang);
-    } catch {
-      // ignore
-    }
-    applyLanguage(lang);
-  });
+  let m = null;
+  const ext = window.UT_MSG;
+  if (ext) m = ext[key === "notTiktok" ? "notUrl" : key];
+  if (m == null) m = (MESSAGES[PAGE_LANG] || MESSAGES.en)[key];
+  if (m == null) m = MESSAGES.en[key];
+  return typeof m === "function" ? m(arg) : m;
 }
 
 // ---------- Mobile nav ----------
 const hamburgerBtn = document.getElementById("hamburgerBtn");
 const mainNav = document.getElementById("mainNav");
 
-function syncMenuLabel() {
-  if (!hamburgerBtn || !mainNav) return;
-  const open = mainNav.classList.contains("open");
-  hamburgerBtn.setAttribute("aria-expanded", open ? "true" : "false");
-  hamburgerBtn.setAttribute("aria-label", open ? t("closeMenu") : t("openMenu"));
-}
-
 if (hamburgerBtn && mainNav) {
   hamburgerBtn.addEventListener("click", () => {
-    mainNav.classList.toggle("open");
-    syncMenuLabel();
+    const open = mainNav.classList.toggle("open");
+    hamburgerBtn.setAttribute("aria-expanded", open ? "true" : "false");
   });
 }
 
-applyLanguage(getLang());
+// ---------- Theme toggle ----------
+const themeToggle = document.getElementById("themeToggle");
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try {
+      localStorage.setItem("unduhtik_theme", next);
+    } catch {
+      // ignore
+    }
+    const meta = document.getElementById("metaTheme");
+    if (meta) meta.setAttribute("content", next === "dark" ? "#0b1220" : "#d6e6f7");
+  });
+}
 
 // ---------- In-app browser warning ----------
 (function checkInAppBrowser() {
@@ -302,7 +275,7 @@ function renderVideo(data) {
 
   const cover = document.getElementById("cover");
   cover.onerror = () => cover.removeAttribute("src");
-  if (data.cover) cover.src = "/api/proxy-image?url=" + encodeURIComponent(data.cover);
+  if (data.cover) cover.src = data.cover;
   else cover.removeAttribute("src");
   document.getElementById("videoTitle").textContent = data.title || t("defaultTitle");
   document.getElementById("videoAuthor").textContent = t("by") + (data.author || "");
