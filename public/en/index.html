@@ -119,6 +119,9 @@
     };
   </script>
 
+
+
+
 <style id="custom-lang-style">
   #langSwitcher {
     appearance: none;
@@ -197,7 +200,7 @@
       </nav>
 
       <div class="header-right">
-        <select id="langSwitcher" aria-label="Pilih Bahasa" onchange="if(this.value){window.location.href=this.value;}">
+        <select id="langSwitcher" aria-label="Select Language" onchange="if(this.value){window.location.href = window.location.origin + this.value;}">
         <option value="/">🌐 ID - Bahasa Indonesia</option>
         <option value="/en/" selected>🌐 EN - English</option>
         <option value="/es/">🌐 ES - Español</option>
