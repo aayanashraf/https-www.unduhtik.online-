@@ -2,34 +2,53 @@
 const path = require('path');
 
 const publicDir = path.join(__dirname, 'public');
-const mainPath = path.join(publicDir, 'index.html');
 
-if (!fs.existsSync(mainPath)) {
-    console.error('index.html not found!');
-    process.exit(1);
+// Supported languages and their path prefixes
+const langs = [
+  { code: 'id', name: 'Bahasa Indonesia', path: '/' },
+  { code: 'en', name: 'English', path: '/en/' },
+  { code: 'es', name: 'Español', path: '/es/' },
+  { code: 'fr', name: 'Français', path: '/fr/' },
+  { code: 'ms', name: 'Bahasa Melayu', path: '/ms/' },
+  { code: 'pt', name: 'Português', path: '/pt/' },
+  { code: 'tr', name: 'Türkçe', path: '/tr/' },
+  { code: 'vi', name: 'Tiếng Việt', path: '/vi/' },
+  { code: 'th', name: 'ไทย', path: '/th/' },
+  { code: 'hi', name: 'हिन्दी', path: '/hi/' },
+  { code: 'ar', name: 'العربية', path: '/ar/' }
+];
+
+function processHtmlFile(filePath, currentLangCode) {
+  let html = fs.readFileSync(filePath, 'utf8');
+
+  // Build proper <select id="langSwitcher">
+  let optionsHtml = langs.map(l => {
+    const selected = l.code === currentLangCode ? ' selected' : '';
+    return `<option value="${l.path}"${selected}>${l.name}</option>`;
+  }).join('\n');
+
+  const newSelect = `<select id="langSwitcher" aria-label="Pilih Bahasa" onchange="window.location.href=this.value;">\n${optionsHtml}\n</select>`;
+
+  // Replace existing langSwitcher select element
+  html = html.replace(/<select[^>]*id=["']langSwitcher["'][^>]*>[\s\S]*?<\/select>/i, newSelect);
+
+  fs.writeFileSync(filePath, html, 'utf8');
+  console.log(`Updated language switcher in: ${filePath}`);
 }
 
-let mainHtml = fs.readFileSync(mainPath, 'utf8');
+function scanAndFix(dir, currentLangCode) {
+  const items = fs.readdirSync(dir);
+  for (const item of items) {
+    const fullPath = path.join(dir, item);
+    const stat = fs.statSync(fullPath);
+    if (stat.isDirectory()) {
+      // Check if directory matches a language code
+      const matchedLang = langs.find(l => l.code === item);
+      scanAndFix(fullPath, matchedLang ? matchedLang.code : currentLangCode);
+    } else if (item === 'index.html') {
+      processHtmlFile(fullPath, currentLangCode);
+    }
+  }
+}
 
-// Function that handles seamless language switching based on root vs subfolder
-const correctSelectScript = `
-    <option value="id">Bahasa Indonesia</option>
-    <option value="en">English</option>
-    <option value="es">Español</option>
-    <option value="fr">Français</option>
-    <option value="ms">Bahasa Melayu</option>
-    <option value="pt">Português</option>
-    <option value="tr">Türkçe</option>
-    <option value="vi">Tiếng Việt</option>
-    <option value="th">ไทย</option>
-    <option value="hi">हिन्दी</option>
-    <option value="ar">العربية</option>
-`;
-
-// Replace <select> and update onchange attribute
-mainHtml = mainHtml.replace(/<select[\s\S]*?>[\s\S]*?<\/select>/i, (match) => {
-    return `<select onchange="window.location.href = this.value === 'id' ? '/' : '/' + this.value + '/'" class="bg-gray-800 text-white px-3 py-1 rounded-md text-sm border border-gray-700 focus:outline-none">\n${correctSelectScript}\n</select>`;
-});
-
-fs.writeFileSync(mainPath, mainHtml, 'utf8');
-console.log('Language select redirect logic updated successfully!');
+scanAndFix(publicDir, 'id');
