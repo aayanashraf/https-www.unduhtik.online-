@@ -1,0 +1,82 @@
+﻿const fs = require('fs');
+const path = require('path');
+
+const publicDir = path.join(__dirname, 'public');
+
+// 1. Create Dedicated Page: download-story-tiktok.html
+const storyPageContent = `<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download TikTok Story Tanpa Watermark Gratis HD - UnduhTik</title>
+  <meta name="description" content="Cara download TikTok Story tanpa watermark gratis kualitas HD. Simpan cerita dan story TikTok orang lain dengan mudah tanpa aplikasi lewat browser di UnduhTik.">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="canonical" href="https://www.unduhtik.online/download-story-tiktok.html">
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col font-sans">
+  <!-- Header / Navigation -->
+  <header class="border-b border-gray-800 bg-gray-900/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="/" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-500">
+        UnduhTik
+      </a>
+      <a href="/" class="text-sm font-medium hover:text-cyan-400 transition">Kembali ke Beranda</a>
+    </div>
+  </header>
+
+  <main class="flex-grow max-w-4xl mx-auto px-4 py-12 text-center">
+    <h1 class="text-3xl sm:text-5xl font-extrabold mb-4 bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 bg-clip-text text-transparent">
+      Download TikTok Story Tanpa Watermark
+    </h1>
+    <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+      Simpan TikTok Story favorit secara anonim, gratis, kualitas HD, dan tanpa perlu instal aplikasi tambahan.
+    </p>
+
+    <div class="bg-gray-800/60 p-6 rounded-2xl border border-gray-700/50 shadow-xl mb-12">
+      <form action="/" method="GET" class="flex flex-col sm:flex-row gap-3">
+        <input type="url" name="url" placeholder="Tempel tautan TikTok Story di sini..." required
+          class="flex-1 px-4 py-3 rounded-xl bg-gray-900 border border-gray-700 text-white focus:outline-none focus:border-cyan-400">
+        <button type="submit" class="px-6 py-3 bg-gradient-to-r from-cyan-500 to-pink-500 rounded-xl font-bold hover:opacity-90 transition">
+          Download Story
+        </button>
+      </form>
+    </div>
+
+    <article class="text-left bg-gray-800/30 p-6 sm:p-8 rounded-2xl border border-gray-800 space-y-6 text-gray-300">
+      <h2 class="text-2xl font-bold text-white">Cara Download TikTok Story di UnduhTik:</h2>
+      <ol class="list-decimal list-inside space-y-2">
+        <li>Buka aplikasi TikTok dan cari Story yang ingin Anda unduh.</li>
+        <li>Klik tombol <strong>Bagikan (Share)</strong> lalu pilih <strong>Salin Tautan (Copy Link)</strong>.</li>
+        <li>Buka laman <strong>UnduhTik</strong> dan tempelkan tautan di kolom atas.</li>
+        <li>Klik tombol <strong>Download</strong> dan simpan Story TikTok dalam HD tanpa watermark.</li>
+      </ol>
+    </article>
+  </main>
+
+  <footer class="border-t border-gray-800 py-6 text-center text-sm text-gray-500">
+    &copy; 2026 UnduhTik. All rights reserved.
+  </footer>
+</body>
+</html>`;
+
+fs.writeFileSync(path.join(publicDir, 'download-story-tiktok.html'), storyPageContent, 'utf8');
+console.log('✅ Created dedicated page: download-story-tiktok.html');
+
+// 2. Update Input Placeholders on main index.html files
+const targetFiles = [
+  path.join(publicDir, 'index.html'),
+  ...['en','es','fr','ms','pt','tr','vi','th','hi','ar','id'].map(lang => path.join(publicDir, lang, 'index.html'))
+];
+
+targetFiles.forEach(file => {
+  if (fs.existsSync(file)) {
+    let html = fs.readFileSync(file, 'utf8');
+    
+    // Update placeholder text if found
+    html = html.replace(/placeholder=["'].*?["']/i, 'placeholder="Paste TikTok Video, Story, MP3 or Photo link here..."');
+    
+    fs.writeFileSync(file, html, 'utf8');
+    console.log(`✅ Updated input placeholder in: ${path.relative(publicDir, file)}`);
+  }
+});
