@@ -1,0 +1,166 @@
+﻿const fs = require('fs');
+const path = require('path');
+
+const publicDir = path.join(__dirname, 'public');
+const blogDir = path.join(publicDir, 'blog');
+const articleDir = path.join(blogDir, 'cara-download-video-tiktok-tanpa-watermark');
+
+if (!fs.existsSync(articleDir)) {
+    fs.mkdirSync(articleDir, { recursive: true });
+}
+
+const articleHtml = `<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cara Mudah Download Video TikTok Tanpa Watermark Kualitas HD (Terbaru 2026) | UnduhTik</title>
+    <meta name="description" content="Cara mudah download video TikTok tanpa watermark kualitas HD terbaru 2026 secara gratis tanpa aplikasi menggunakan UnduhTik.">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/" class="logo" aria-label="UnduhTik - Beranda">
+          <span class="logo-text"><span class="b-u">Unduh</span><span class="b-t">Tik</span></span>
+        </a>
+        <nav class="main-nav" id="mainNav" aria-label="Menu utama">
+          <a href="/">Beranda</a>
+          <a href="/#cara-unduh">Cara Unduh</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/blog" class="active">Blog</a>
+          <a href="/contact.html">Kontak</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container" style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
+        <article style="background: var(--card-bg, #fff); padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            <h1 style="font-size: 1.8rem; margin-bottom: 15px; color: var(--text-color, #111);">Cara Mudah Download Video TikTok Tanpa Watermark Kualitas HD (Terbaru 2026)</h1>
+            <p style="color: #666; font-size: 0.95rem; margin-bottom: 25px;">Dipublikasikan oleh Tim UnduhTik • Panduan Terbaru</p>
+
+            <p style="line-height: 1.7; margin-bottom: 15px;">
+                Pernahkah kamu scrolling TikTok, nemu video yang keren atau lucu, terus pengen disimpen ke galeri tapi risih sama watermark logo TikTok yang gerak-gerak di layar? Tenang, masalah itu gampang banget diselesaiku!. Pernahkah kamu nemu video TikTok yang bagus banget, terus pengen disimpen buat ditonton offline? Sayangnya, kalau di-download langsung dari aplikasi, bakal ada watermark logo TikTok yang nutupin layar. Kalau kamu lagi cari cara buat ngilangin watermark itu dengan gampang dan kualitas HD, artikel ini bakal kasih tau caranya. Seringkali, kita ingin menyimpan video tersebut ke galeri HP atau laptop untuk ditonton secara offline atau dibagikan ke platform lain.
+            </p>
+
+            <p style="line-height: 1.7; margin-bottom: 20px;">
+                Namun, masalah yang sering dihadapi adalah adanya tanda air (watermark) berupa logo TikTok dan nama pengguna yang bergerak di layar.
+            </p>
+
+            <p style="line-height: 1.7; margin-bottom: 25px;">
+                Di artikel ini, kita akan membahas cara paling mudah, cepat, dan gratis untuk mengunduh video TikTok tanpa watermark menggunakan UnduhTik.
+            </p>
+
+            <h2 style="font-size: 1.4rem; margin-top: 30px; margin-bottom: 15px;">Mengapa Harus Menggunakan UnduhTik?</h2>
+            <p style="line-height: 1.7; margin-bottom: 15px;">Sebelum masuk ke langkah-langkahnya, berikut adalah beberapa keunggulan menggunakan UnduhTik.online:</p>
+            <ul style="line-height: 1.8; padding-left: 20px; margin-bottom: 25px;">
+                <li><strong>Tanpa Watermark (No Watermark):</strong> Video yang diunduh bersih tanpa ada logo atau teks yang mengganggu.</li>
+                <li><strong>Kualitas HD:</strong> Mendukung unduhan video dengan kualitas jernih definisi tinggi (High Definition).</li>
+                <li><strong>Tanpa Aplikasi Tambahan:</strong> Anda tidak perlu menginstal aplikasi berat atau ekstensi browser; semuanya bisa dilakukan langsung via browser HP maupun PC.</li>
+                <li><strong>100% Gratis:</strong> Layanan dapat digunakan sepuasnya tanpa biaya langganan.</li>
+            </ul>
+
+            <h2 style="font-size: 1.4rem; margin-top: 30px; margin-bottom: 15px;">Langkah-Langkah Download Video TikTok di UnduhTik</h2>
+            <p style="line-height: 1.7; margin-bottom: 15px;">
+                Gak pakai ribet, kamu cuma butuh waktu beberapa detik aja buat nyelesaiin prosesnya lewat langkah-langkah gampang ini:
+            </p>
+            <ol style="line-height: 1.8; padding-left: 20px; margin-bottom: 25px;">
+                <li><strong>Buka Aplikasi TikTok:</strong> Cari video yang ingin Anda unduh.</li>
+                <li><strong>Salin Tautan (Copy Link):</strong> Ketuk tombol Bagikan (Share) pada video tersebut, lalu pilih opsi Salin Tautan (Copy Link).</li>
+                <li><strong>Kunjungi Website:</strong> Buka browser di perangkat Anda dan kunjungi unduhtik.online.</li>
+                <li><strong>Tempel Tautan (Paste):</strong> Masukkan tautan video yang sudah disalin ke kolom input yang tersedia di halaman utama.</li>
+                <li><strong>Tekan Unduh:</strong> Klik tombol Download, lalu pilih format yang diinginkan (Video Tanpa Watermark atau MP3 Audio).</li>
+            </ol>
+
+            <h2 style="font-size: 1.4rem; margin-top: 30px; margin-bottom: 15px;">Pertanyaan yang Sering Diajukan (FAQ)</h2>
+            <div style="margin-bottom: 20px;">
+                <p><strong>1. Apakah aman menggunakan UnduhTik?</strong><br>Sangat aman. Kami tidak menyimpan riwayat unduhan atau data pribadi pengguna di server kami.</p>
+                <p style="margin-top: 10px;"><strong>2. Apakah bisa mendownload video di iPhone?</strong><br>Tentu saja! UnduhTik kompatibel dengan semua perangkat, baik Android, iPhone (iOS), maupun komputer (PC/Laptop).</p>
+                <p style="margin-top: 10px;"><strong>3. Bagaimana cara mendownload musik atau lagu dari TikTok?</strong><br>Setelah Anda menempelkan tautan video, sistem kami juga menyediakan opsi untuk mengunduh musik latar (audio MP3) secara terpisah.</p>
+            </div>
+
+            <h2 style="font-size: 1.4rem; margin-top: 30px; margin-bottom: 15px;">Kesimpulan</h2>
+            <p style="line-height: 1.7; margin-bottom: 25px;">
+                Menyimpan video favorit dari TikTok kini bukan lagi hal yang sulit. Dengan antarmuka yang cepat dan bersih, UnduhTik siap membantu Anda mengunduh konten kesukaan kapan saja dengan kualitas terbaik. Kunjungi halaman Beranda kami sekarang dan coba sendiri kemudahannya!
+            </p>
+
+            <div style="background: rgba(0,242,254,0.1); padding: 20px; border-radius: 8px; margin-top: 30px; text-align: center;">
+                <h3 style="margin-bottom: 10px; color: #0077ff;">Siap Mencoba?</h3>
+                <a href="/" style="display: inline-block; background: linear-gradient(135deg, #00f2fe, #ff007f); color: #fff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold;">Coba Unduh Sekarang</a>
+            </div>
+        </article>
+    </main>
+
+    <footer style="text-align: center; padding: 30px; color: #888; font-size: 0.9rem;">
+        <p>&copy; 2026 UnduhTik. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+`;
+
+fs.writeFileSync(path.join(articleDir, 'index.html'), articleHtml, 'utf8');
+console.log('Article page created successfully!');
+
+// Update blog index page to link to this article
+const blogIndexHtml = `<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog UnduhTik - Tips & Panduan Download Video TikTok</title>
+    <meta name="description" content="Kumpulan artikel, tutorial, dan panduan download video TikTok tanpa watermark secara mudah dan cepat.">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/" class="logo" aria-label="UnduhTik - Beranda">
+          <span class="logo-text"><span class="b-u">Unduh</span><span class="b-t">Tik</span></span>
+        </a>
+        <nav class="main-nav" id="mainNav" aria-label="Menu utama">
+          <a href="/">Beranda</a>
+          <a href="/#cara-unduh">Cara Unduh</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/blog" class="active">Blog</a>
+          <a href="/contact.html">Kontak</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container" style="max-width: 900px; margin: 40px auto; padding: 0 20px;">
+        <h1 style="font-size: 2rem; margin-bottom: 20px;">Blog & Panduan UnduhTik</h1>
+        <p style="color: #666; margin-bottom: 30px;">Temukan tips, trik, dan tutorial terbaru seputar pengunduhan video TikTok.</p>
+
+        <div class="blog-list" style="display: grid; gap: 20px;">
+            <div style="background: var(--card-bg, #fff); padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <h2 style="font-size: 1.4rem; margin-bottom: 10px;">
+                    <a href="/blog/cara-download-video-tiktok-tanpa-watermark" style="color: var(--text-color, #111); text-decoration: none;">Cara Mudah Download Video TikTok Tanpa Watermark Kualitas HD (Terbaru 2026)</a>
+                </h2>
+                <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">
+                    Pernahkah kamu scrolling TikTok, nemu video yang keren atau lucu, terus pengen disimpen ke galeri tapi risih sama watermark logo TikTok yang gerak-gerak di layar? Simak cara mudahnya di sini.
+                </p>
+                <a href="/blog/cara-download-video-tiktok-tanpa-watermark" style="color: #ff007f; font-weight: bold; text-decoration: none;">Baca Selengkapnya &rarr;</a>
+            </div>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 30px; color: #888; font-size: 0.9rem;">
+        <p>&copy; 2026 UnduhTik. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+`;
+
+fs.writeFileSync(path.join(blogDir, 'index.html'), blogIndexHtml, 'utf8');
+console.log('Blog main listing index updated successfully!');
+
+// Ensure express server dynamically supports nested blog articles
+let serverCode = fs.readFileSync('server.js', 'utf8');
+if (!serverCode.includes("app.use('/blog'")) {
+    serverCode = serverCode.replace(
+        "app.listen(",
+        "app.use('/blog', express.static(path.join(__dirname, 'public', 'blog')));\napp.listen("
+    );
+    fs.writeFileSync('server.js', serverCode, 'utf8');
+    console.log('Server.js updated with blog static route!');
+}
