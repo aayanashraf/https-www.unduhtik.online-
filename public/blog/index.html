@@ -43,5 +43,20 @@
     <footer style="text-align: center; padding: 30px; color: #888; font-size: 0.9rem;">
         <p>&copy; 2026 UnduhTik. All rights reserved.</p>
     </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const switcher = document.getElementById('langSwitcher');
+  if (switcher) {
+    switcher.addEventListener('change', function() {
+      const targetPath = this.value;
+      if (targetPath) {
+        window.location.href = targetPath;
+      }
+    });
+  }
+});
+</script>
+
 </body>
 </html>
