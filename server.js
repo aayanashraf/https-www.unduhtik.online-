@@ -271,6 +271,19 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+
+// Dynamic Multilingual Route Handler
+const supportedLangs = ['en', 'es', 'fr', 'ms', 'pt', 'tr', 'vi', 'th', 'hi', 'ar'];
+app.get('/:lang(' + supportedLangs.join('|') + ')/?', (req, res) => {
+    const lang = req.params.lang;
+    const filePath = path.join(__dirname, 'public', lang, 'index.html');
+    if (fs.existsSync(filePath)) {
+        res.sendFile(filePath);
+    } else {
+        res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
