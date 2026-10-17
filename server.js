@@ -3,7 +3,7 @@
 function sanitizeTikTokUrl(rawUrl) {
   if (!rawUrl || typeof rawUrl !== 'string') return '';
   let cleaned = rawUrl.trim();
-  const match = cleaned.match(/https?://(www.|v[tm].)?tiktok.com/[^s]+/i);
+  const match = cleaned.match(/https?:\/\/(www\.|v[tm]\.)?tiktok\.com\/[^\s]+/i);
   return match ? match[0] : cleaned;
 }
 
