@@ -142,7 +142,7 @@
       </nav>
 
       <div class="header-right">
-        <select id="langSwitcher" aria-label="Pilih Bahasa" onchange="window.location.href=this.value;">
+        <select id="langSwitcher" aria-label="Language" onchange="if(this.value){window.location.href=this.value;}">
 <option value="/" selected>Bahasa Indonesia</option>
 <option value="/en/">English</option>
 <option value="/es/">Español</option>
@@ -464,19 +464,7 @@
   </script>
   <script src="/script.js" defer></script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const switcher = document.getElementById('langSwitcher');
-  if (switcher) {
-    switcher.addEventListener('change', function() {
-      const targetPath = this.value;
-      if (targetPath) {
-        window.location.href = targetPath;
-      }
-    });
-  }
-});
-</script>
+
 
 </body>
 </html>
