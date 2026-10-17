@@ -433,3 +433,23 @@ async function handleDownload() {
     setLoading(false);
   }
 }
+
+// ---------- Language dropdown: short codes on phones (ID, EN, MS...) ----------
+(function shortLangLabels() {
+  const sel = document.getElementById("langSwitcher");
+  if (!sel || !window.matchMedia) return;
+  const mq = window.matchMedia("(max-width: 720px)");
+  const opts = Array.from(sel.options);
+  opts.forEach((o) => { o.dataset.full = o.textContent; });
+  const code = (o) => (o.value === "/" ? "ID" : o.value.replace(/\//g, "").toUpperCase());
+  const setShort = () => opts.forEach((o) => { o.textContent = code(o); });
+  const setFull = () => opts.forEach((o) => { o.textContent = o.dataset.full; });
+  const apply = () => (mq.matches ? setShort() : setFull());
+  apply();
+  if (mq.addEventListener) mq.addEventListener("change", apply);
+  else if (mq.addListener) mq.addListener(apply);
+  // while the list is open, show the full language names
+  sel.addEventListener("focus", () => { if (mq.matches) setFull(); });
+  sel.addEventListener("blur", () => { if (mq.matches) setShort(); });
+  sel.addEventListener("change", () => { if (mq.matches) setShort(); });
+})();

@@ -528,3 +528,8 @@ a:hover { color: var(--accent-dark); }
 }
 
 [dir="rtl"] .seo-grid, [dir="rtl"] .error { text-align: right; }
+
+/* Language dropdown: fixed small width on phones (shows ID, EN, MS...) */
+@media (max-width: 720px) {
+  .header-right .lang-switcher { width: 64px; max-width: 64px; }
+}
