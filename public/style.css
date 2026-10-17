@@ -810,3 +810,24 @@ a {
     padding-right: 1rem !important;
   }
 }
+
+/* Perfect Mobile Header Single-Line Fix */
+@media (max-width: 640px) {
+  header div.flex, header > div {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 4px !important;
+    width: 100% !important;
+  }
+  header a, header span, .text-2xl, .text-xl {
+    font-size: 1.15rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+  }
+  header select {
+    font-size: 0.75rem !important;
+    padding: 2px 4px !important;
+  }
+}
