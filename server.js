@@ -284,6 +284,12 @@ app.get('/:lang(' + supportedLangs.join('|') + ')/?', (req, res) => {
     }
 });
 
+
+// Blog Route Handler
+app.get('/blog/?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'blog', 'index.html'));
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

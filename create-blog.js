@@ -1,0 +1,98 @@
+﻿const fs = require('fs');
+const path = require('path');
+
+const publicDir = path.join(__dirname, 'public');
+const blogDir = path.join(publicDir, 'blog');
+
+// 1. Create blog directory if it doesn't exist
+if (!fs.existsSync(blogDir)) {
+    fs.mkdirSync(blogDir, { recursive: true });
+}
+
+// 2. Create unique blog index.html with clean conversational wording (0% plagiarism)
+const blogHtml = `<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Cara Download Video TikTok Tanpa Watermark | UnduhTik</title>
+    <meta name="description" content="Baca artikel dan tips seputar cara mudah mengunduh video TikTok tanpa watermark kualitas HD gratis lewat UnduhTik.">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/" class="logo" aria-label="UnduhTik - Beranda">
+          <span class="logo-text"><span class="b-u">Unduh</span><span class="b-t">Tik</span></span>
+        </a>
+        <nav class="main-nav" id="mainNav" aria-label="Menu utama">
+          <a href="/">Beranda</a>
+          <a href="/#cara-unduh">Cara Unduh</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/blog" class="active">Blog</a>
+          <a href="/contact.html">Kontak</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container" style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
+        <article style="background: var(--card-bg, #fff); padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            <h1 style="font-size: 2rem; margin-bottom: 15px; color: var(--text-color, #111);">Cara Mudah Download Video TikTok Tanpa Watermark Kualitas HD</h1>
+            <p style="color: #666; font-size: 0.95rem; margin-bottom: 25px;">Dipublikasikan oleh Tim UnduhTik • Panduan Terbaru</p>
+
+            <p style="line-height: 1.7; margin-bottom: 15px;">
+                Pernahkah kamu scrolling TikTok, nemu video yang keren atau lucu, terus pengen disimpen buat ditonton offline? Sayangnya, kalau di-download langsung dari aplikasi, bakal ada watermark logo TikTok yang nutupin layar. Kalau kamu lagi cari cara buat ngilangin watermark itu dengan gampang dan kualitas HD, artikel ini bakal kasih tau caranya!
+            </p>
+
+            <h2 style="font-size: 1.4rem; margin-top: 30px; margin-bottom: 15px;">Kenapa Harus Pakai UnduhTik?</h2>
+            <ul style="line-height: 1.8; padding-left: 20px; margin-bottom: 20px;">
+                <li><strong>Bebas Watermark:</strong> Hasil video bersih tanpa ada logo atau ID pengguna yang mengganggu.</li>
+                <li><strong>Kualitas Jernih:</strong> Mendukung resolusi HD agar video tetap tajam saat diputar ulang.</li>
+                <li><strong>Tanpa Instal Aplikasi:</strong> Gak perlu download aplikasi tambahan di HP atau laptop, cukup pakai browser saja.</li>
+                <li><strong>Sepenuhnya Gratis:</strong> Bisa dipakai sepuasnya tanpa biaya langganan apa pun.</li>
+            </ul>
+
+            <h2 style="font-size: 1.4rem; margin-top: 30px; margin-bottom: 15px;">Langkah-Langkah Unduh Video</h2>
+            <p style="line-height: 1.7; margin-bottom: 15px;">
+                Gak pakai ribet, kamu cuma butuh waktu beberapa detik aja buat nyelesaiin prosesnya lewat langkah-langkah gampang ini:
+            </p>
+            <ol style="line-height: 1.8; padding-left: 20px; margin-bottom: 25px;">
+                <li>Buka aplikasi atau website TikTok dan cari video incaranmu.</li>
+                <li>Ketuk tombol <strong>Bagikan (Share)</strong> lalu pilih <strong>Salin Tautan (Copy Link)</strong>.</li>
+                <li>Buka browser dan kunjungi <a href="/" style="color: #ff007f; text-decoration: underline;">UnduhTik.online</a>.</li>
+                <li>Tempel (paste) link tersebut ke kolom yang sudah disediakan di halaman utama.</li>
+                <li>Klik tombol download dan simpan video ke perangkatmu!</li>
+            </ol>
+
+            <div style="background: rgba(0,242,254,0.1); padding: 20px; border-radius: 8px; margin-top: 30px;">
+                <h3 style="margin-bottom: 10px; color: #0077ff;">Siap Mencoba?</h3>
+                <p style="margin-bottom: 15px;">Yuk, langsung buktikan kecepatannya sekarang juga!</p>
+                <a href="/" style="display: inline-block; background: linear-gradient(135deg, #00f2fe, #ff007f); color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold;">Buka Beranda Utama</a>
+            </div>
+        </article>
+    </main>
+
+    <footer style="text-align: center; padding: 30px; color: #888; font-size: 0.9rem;">
+        <p>&copy; 2026 UnduhTik. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+`;
+
+fs.writeFileSync(path.join(blogDir, 'index.html'), blogHtml, 'utf8');
+console.log('Blog index.html created successfully!');
+
+// 3. Update server.js to explicitly handle /blog route with trailing slash support
+let serverCode = fs.readFileSync('server.js', 'utf8');
+const blogRoute = `
+// Blog Route Handler
+app.get('/blog/?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'blog', 'index.html'));
+});
+`;
+
+if (!serverCode.includes("app.get('/blog'")) {
+    serverCode = serverCode.replace('app.listen(', blogRoute + '\napp.listen(');
+    fs.writeFileSync('server.js', serverCode, 'utf8');
+    console.log('Server.js updated with /blog route!');
+}
