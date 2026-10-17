@@ -526,3 +526,5 @@ a:hover { color: var(--accent-dark); }
 @media (prefers-reduced-motion: reduce) {
   .btn-spinner { animation-duration: 1.5s !important; animation-iteration-count: infinite !important; }
 }
+
+[dir="rtl"] .seo-grid, [dir="rtl"] .error { text-align: right; }
