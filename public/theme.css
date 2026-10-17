@@ -503,3 +503,26 @@ a:hover { color: var(--accent-dark); }
 /* Mobile par bade touch targets */
 .lang-switcher, .hamburger, .theme-toggle { min-height: 44px; }
 .hamburger, .theme-toggle { min-width: 44px; }
+/* ===== Small fixes (review) ===== */
+
+/* 1. Rang-birangi patti box ke gol kinaron se bahar na nikle */
+.tool-box { overflow: hidden; }
+
+/* 2. Arabic (RTL): mobile header aur FAQ ka "+" sahi jagah par */
+@media (max-width: 720px) {
+  .header-right { margin-left: 0; margin-inline-start: auto; }
+}
+[dir="rtl"] .faq-section summary { padding: 18px 20px 18px 52px; }
+[dir="rtl"] .faq-section summary::after { right: auto; left: 20px; }
+
+/* 3. Mobile par touch buttons 44px */
+@media (max-width: 720px) {
+  .theme-toggle, .hamburger {
+    flex: 0 0 44px; width: 44px; height: 44px; min-width: 44px; min-height: 44px;
+  }
+}
+
+/* 4. Reduced-motion mein loading spinner chalta rahe (dheere) */
+@media (prefers-reduced-motion: reduce) {
+  .btn-spinner { animation-duration: 1.5s !important; animation-iteration-count: infinite !important; }
+}
