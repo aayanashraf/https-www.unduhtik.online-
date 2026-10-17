@@ -1,3 +1,12 @@
+
+// Robust TikTok URL Sanitizer & Error Guard
+function sanitizeTikTokUrl(rawUrl) {
+  if (!rawUrl || typeof rawUrl !== 'string') return '';
+  let cleaned = rawUrl.trim();
+  const match = cleaned.match(/https?://(www.|v[tm].)?tiktok.com/[^s]+/i);
+  return match ? match[0] : cleaned;
+}
+
 const express = require('express');
 const path = require('path');
 const dns = require('dns').promises;
