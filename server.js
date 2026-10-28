@@ -303,19 +303,7 @@ app.get('/blog/?', (req, res) => {
 
 app.use('/blog', express.static(path.join(__dirname, 'public', 'blog')));
 
-// Blog Routes Fix
-app.get('/blog-download-mp3-tiktok.html', (req, res) => {
-    try {
-        const rootPath = path.join(__dirname, 'blog-download-mp3-tiktok.html');
-        const publicPath = path.join(__dirname, 'public', 'blog-download-mp3-tiktok.html');
-        if (fs.existsSync(rootPath)) return res.sendFile(rootPath);
-        if (fs.existsSync(publicPath)) return res.sendFile(publicPath);
-        res.status(404).send('Blog post file not found');
-    } catch (err) {
-        console.error('Error serving blog post:', err);
-        res.status(500).send('Internal Server Error');
-    }
-});
+
 
 app.get('/blog.html', (req, res) => {
     try {
@@ -329,7 +317,16 @@ app.get('/blog.html', (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
+// Blog Express Routes
+app.get('/blog-download-mp3-tiktok.html', (req, res) => {
+    res.sendFile('blog-download-mp3-tiktok.html', { root: __dirname });
+});
+
+app.get('/blog.html', (req, res) => {
+    res.sendFile('blog.html', { root: __dirname });
+});
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
 
