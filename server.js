@@ -339,5 +339,13 @@ if (require.main === module) {
 }
 
 module.exports = app;
+// Local ke liye listen kare, Vercel (serverless) ke liye export ho jaye
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+}
+
+module.exports = app;
 
 
