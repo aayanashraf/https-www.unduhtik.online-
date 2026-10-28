@@ -1,4 +1,6 @@
-﻿
+﻿const fs = require('fs');
+const path = require('path');
+
 // Robust TikTok URL Sanitizer & Error Guard
 function sanitizeTikTokUrl(rawUrl) {
   if (!rawUrl || typeof rawUrl !== 'string') return '';
@@ -303,20 +305,31 @@ app.use('/blog', express.static(path.join(__dirname, 'public', 'blog')));
 
 // Blog Routes Fix
 app.get('/blog-download-mp3-tiktok.html', (req, res) => {
-    const rootPath = path.join(__dirname, 'blog-download-mp3-tiktok.html');
-    const publicPath = path.join(__dirname, 'public', 'blog-download-mp3-tiktok.html');
-    if (fs.existsSync(rootPath)) return res.sendFile(rootPath);
-    if (fs.existsSync(publicPath)) return res.sendFile(publicPath);
-    res.status(404).send('File not found');
+    try {
+        const rootPath = path.join(__dirname, 'blog-download-mp3-tiktok.html');
+        const publicPath = path.join(__dirname, 'public', 'blog-download-mp3-tiktok.html');
+        if (fs.existsSync(rootPath)) return res.sendFile(rootPath);
+        if (fs.existsSync(publicPath)) return res.sendFile(publicPath);
+        res.status(404).send('Blog post file not found');
+    } catch (err) {
+        console.error('Error serving blog post:', err);
+        res.status(500).send('Internal Server Error');
+    }
 });
 
 app.get('/blog.html', (req, res) => {
-    const rootPath = path.join(__dirname, 'blog.html');
-    const publicPath = path.join(__dirname, 'public', 'blog.html');
-    if (fs.existsSync(rootPath)) return res.sendFile(rootPath);
-    if (fs.existsSync(publicPath)) return res.sendFile(publicPath);
-    res.status(404).send('File not found');
+    try {
+        const rootPath = path.join(__dirname, 'blog.html');
+        const publicPath = path.join(__dirname, 'public', 'blog.html');
+        if (fs.existsSync(rootPath)) return res.sendFile(rootPath);
+        if (fs.existsSync(publicPath)) return res.sendFile(publicPath);
+        res.status(404).send('Blog main page not found');
+    } catch (err) {
+        console.error('Error serving blog list:', err);
+        res.status(500).send('Internal Server Error');
+    }
 });
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
