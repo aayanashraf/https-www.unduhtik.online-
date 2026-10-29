@@ -1,0 +1,21 @@
+﻿{
+  "name": "UnduhTik - TikTok Downloader",
+  "short_name": "UnduhTik",
+  "description": "Download video TikTok tanpa watermark, MP3 dan foto slideshow. Gratis.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#14122b",
+  "theme_color": "#3b1d8f",
+  "lang": "id",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "share_target": {
+    "action": "/",
+    "method": "GET",
+    "params": { "title": "title", "text": "text", "url": "url" }
+  }
+}

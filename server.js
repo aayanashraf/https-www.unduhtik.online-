@@ -1,4 +1,4 @@
-﻿const path = require('path');
+const path = require('path');
 const fs = require('fs');
 // Robust TikTok URL Sanitizer & Error Guard
 function sanitizeTikTokUrl(rawUrl) {
@@ -22,6 +22,20 @@ const UA =
 app.disable('x-powered-by');
 app.set('trust proxy', 1);
 app.use(express.json({ limit: '100kb' }));
+// OLD_URL_REDIRECTS: purane URLs ko naye par 301 redirect
+const OLD_URL_REDIRECTS = {
+  '/syarat-ketentuan': '/terms.html',
+  '/kebijakan-privasi': '/privacy.html',
+  '/download-tiktok-mp3': '/download-mp3-tiktok.html',
+  '/download-tiktok-story': '/download-story-tiktok.html',
+  '/download-tiktok-slideshow': '/download-foto-slideshow-tiktok.html'
+};
+app.use((req, res, next) => {
+  const key = req.path.replace(/\.html$/i, '').replace(/\/+$/, '');
+  const target = OLD_URL_REDIRECTS[key];
+  if (target) { return res.redirect(301, target); }
+  next();
+});
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ---------------------------------------------------------------
@@ -323,29 +337,11 @@ app.get('/blog-download-mp3-tiktok.html', (req, res) => {
 app.get('/blog.html', (req, res) => {
     res.sendFile('blog.html', { root: __dirname });
 });
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
-
-
-module.exports = app;
-
-if (require.main === module) {
-    const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => {
-        console.log(Server running on port );
-    });
-}
-
-module.exports = app;
 // Local ke liye listen kare, Vercel (serverless) ke liye export ho jaye
 if (require.main === module) {
-    app.listen(PORT, () => {
-        console.log(`Server running on port ${PORT}`);
-    });
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
 }
 
 module.exports = app;
-
-

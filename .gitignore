@@ -1,2 +1,5 @@
 .vercel
 .env*
+public_backup*
+*.bak*
+shots
