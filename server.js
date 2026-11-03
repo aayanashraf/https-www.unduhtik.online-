@@ -128,25 +128,57 @@ setInterval(() => {
   for (const [ip, arr] of hits) if (!arr.some((t) => now - t < 60000)) hits.delete(ip);
 }, 5 * 60 * 1000).unref();
 
-async function fetchTikwm(videoUrl) {
+// TIK_CACHE_PATCH: cache + timeout + saaf errors
+const tikCache = new Map();
+const tikInflight = new Map();
+const TIK_TTL = 5 * 60 * 1000;
+function tikKey(u) { try { const o = new URL(u); o.search = ''; o.hash = ''; return o.toString(); } catch { return u; } }
+
+async function fetchTikwmOnce(videoUrl) {
+  const start = Date.now();
   for (let attempt = 0; attempt < 3; attempt++) {
-    const r = await fetch(
-      `https://www.tikwm.com/api/?url=${encodeURIComponent(videoUrl)}&hd=1`,
-      { headers: { 'User-Agent': UA } }
-    );
-    const j = await r.json();
-    if (j.code === 0 && j.data) return j.data;
-    // tikwm free tier allows ~1 request/second: wait and retry
-    if (/limit/i.test(j.msg || '') && attempt < 2) {
-      await sleep(1300);
-      continue;
+    if (Date.now() - start > 8000) { const e = new Error('deadline'); e.busy = true; throw e; }
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 5000);
+    let j;
+    try {
+      const r = await fetch(
+        `https://www.tikwm.com/api/?url=${encodeURIComponent(videoUrl)}&hd=1`,
+        { headers: { 'User-Agent': UA }, signal: ctrl.signal }
+      );
+      j = await r.json();
+    } catch (e) {
+      clearTimeout(timer);
+      if (attempt < 2) { await sleep(800); continue; }
+      const err = new Error('source unreachable'); err.busy = true; throw err;
     }
-    const err = new Error(j.msg || 'not found');
+    clearTimeout(timer);
+    if (j && j.code === 0 && j.data) return j.data;
+    if (/limit/i.test((j && j.msg) || '')) {
+      if (attempt < 2) { await sleep(1300); continue; }
+      const err = new Error('rate limited'); err.busy = true; throw err;
+    }
+    const err = new Error((j && j.msg) || 'not found');
     err.userFacing = true;
     throw err;
   }
 }
 
+async function fetchTikwm(videoUrl) {
+  const key = tikKey(videoUrl);
+  const hit = tikCache.get(key);
+  if (hit && Date.now() - hit.t < TIK_TTL) return hit.data;
+  if (tikInflight.has(key)) return tikInflight.get(key);
+  const p = fetchTikwmOnce(videoUrl)
+    .then((data) => {
+      tikCache.set(key, { t: Date.now(), data });
+      if (tikCache.size > 200) tikCache.delete(tikCache.keys().next().value);
+      return data;
+    })
+    .finally(() => tikInflight.delete(key));
+  tikInflight.set(key, p);
+  return p;
+}
 // ---------------------------------------------------------------
 // POST /api/download  -> video / slideshow info
 // ---------------------------------------------------------------
@@ -185,6 +217,9 @@ app.post('/api/download', rateLimit, async (req, res) => {
     });
   } catch (err) {
     console.error('Download error:', err.message);
+    if (err.busy) {
+      return res.status(503).json({ success: false, error: 'Server sedang sibuk. Coba lagi beberapa detik lagi.' });
+    }
     if (err.userFacing) {
       return res.status(400).json({
         success: false,
