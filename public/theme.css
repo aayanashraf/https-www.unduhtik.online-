@@ -679,3 +679,11 @@ body .legal-page strong{color:var(--tx)}
 body .contact-box{background:var(--card);border:1px solid var(--ln);border-radius:20px;padding:24px;margin:24px 0;box-shadow:var(--sh)}
 body .contact-box p{color:var(--mu);margin:6px 0}
 body .contact-box strong{color:var(--tx)}
+
+/* === blog dark-mode fix === */
+html[data-theme="dark"] .blog-list > div { background: rgba(30,41,59,.75) !important; }
+html[data-theme="dark"] .blog-list h2 a { color: #f1f5f9 !important; }
+html[data-theme="dark"] .blog-list p,
+html[data-theme="dark"] main.container > p { color: #cbd5e1 !important; }
+html[data-theme="dark"] #langSwitcher { background-color: rgba(30,41,59,.7); color: #f8fafc; border-color: rgba(255,255,255,.1); }
+html[data-theme="dark"] #langSwitcher option { background-color: #0f172a; color: #f8fafc; }
