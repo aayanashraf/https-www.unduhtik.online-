@@ -687,3 +687,5 @@ html[data-theme="dark"] .blog-list p,
 html[data-theme="dark"] main.container > p { color: #cbd5e1 !important; }
 html[data-theme="dark"] #langSwitcher { background-color: rgba(30,41,59,.7); color: #f8fafc; border-color: rgba(255,255,255,.1); }
 html[data-theme="dark"] #langSwitcher option { background-color: #0f172a; color: #f8fafc; }
+/* === inline dark-grey text fix === */
+html[data-theme="dark"] :is([style*="color:#111"],[style*="color: #111"],[style*="color:#222"],[style*="color: #222"],[style*="color:#333"],[style*="color: #333"],[style*="color:#444"],[style*="color: #444"],[style*="color:#555"],[style*="color: #555"],[style*="color:#666"],[style*="color: #666"]) { color: #cbd5e1 !important; }
