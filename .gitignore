@@ -3,3 +3,5 @@
 public_backup*
 *.bak*
 shots
+
+public_backup_*/

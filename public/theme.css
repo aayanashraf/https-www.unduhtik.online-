@@ -665,3 +665,17 @@ body .bq-st{font-size:.85rem;color:var(--mu)}
 body .bq-err .bq-st{color:#d93a3a}
 body .bq-b{display:inline-block;padding:8px 14px;font-size:.88rem;font-weight:700;color:var(--a);background:color-mix(in srgb,var(--a) 10%,var(--card));border:2px solid color-mix(in srgb,var(--a) 35%,var(--ln));border-radius:999px;text-decoration:none;margin-right:6px}
 body .bq-tools{margin-top:10px}
+
+/* LEGAL-PAGE-CSS */
+body .legal-page{max-width:760px;margin:32px auto;padding:clamp(20px,4vw,36px) clamp(16px,4vw,24px)}
+body .legal-page h1{font-size:clamp(1.8rem,4.5vw,2.4rem);font-weight:800;letter-spacing:-.025em;color:var(--tx);margin:0 0 16px}
+body .legal-page h2{margin:28px 0 10px;font-size:1.25rem;font-weight:700;color:var(--tx)}
+body .legal-page h3{margin:20px 0 8px;font-size:1.05rem;font-weight:700;color:var(--tx)}
+body .legal-page p,body .legal-page li{color:var(--mu);line-height:1.75;font-size:.98rem}
+body .legal-page ul,body .legal-page ol{padding-left:1.4rem;margin:10px 0 16px}
+body .legal-page a{color:var(--a);font-weight:600;text-decoration:none}
+body .legal-page a:hover{text-decoration:underline}
+body .legal-page strong{color:var(--tx)}
+body .contact-box{background:var(--card);border:1px solid var(--ln);border-radius:20px;padding:24px;margin:24px 0;box-shadow:var(--sh)}
+body .contact-box p{color:var(--mu);margin:6px 0}
+body .contact-box strong{color:var(--tx)}

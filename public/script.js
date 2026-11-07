@@ -216,48 +216,57 @@ function validateInput(raw) {
 }
 
 function setLoading(isLoading) {
-  downloadBtn.disabled = isLoading;
-  pasteBtn.disabled = isLoading;
-  downloadBtn.classList.toggle("is-loading", isLoading);
-  downloadBtn.setAttribute("aria-busy", isLoading ? "true" : "false");
-  if (statusEl) statusEl.textContent = isLoading ? t("processing") : "";
-
-  if (isLoading) {
-    downloadBtn.innerHTML = "";
-    const spinner = document.createElement("span");
-    spinner.className = "btn-spinner";
-    const label = document.createElement("span");
-    label.textContent = t("processing");
-    downloadBtn.append(spinner, label);
-  } else {
-    downloadBtn.textContent = t("download");
-  }
-}
-
-urlInput.addEventListener("input", () => {
-  urlInput.classList.remove("input-error");
-});
-
-pasteBtn.addEventListener("click", async () => {
-  try {
-    const text = await navigator.clipboard.readText();
-    urlInput.value = text;
-    urlInput.classList.remove("input-error");
-  } catch {
-    showToast(t("clipboard"));
-  }
-});
-
-downloadBtn.addEventListener("click", handleDownload);
-urlInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    if (!downloadBtn.disabled) {
-      trackEvent("download_click", { method: "enter" });
-      handleDownload();
+  if (downloadBtn) {
+    downloadBtn.disabled = isLoading;
+    downloadBtn.classList.toggle("is-loading", isLoading);
+    downloadBtn.setAttribute("aria-busy", isLoading ? "true" : "false");
+    if (isLoading) {
+      downloadBtn.innerHTML = "";
+      const spinner = document.createElement("span");
+      spinner.className = "btn-spinner";
+      const label = document.createElement("span");
+      label.textContent = t("processing");
+      downloadBtn.append(spinner, label);
+    } else {
+      downloadBtn.textContent = t("download");
     }
   }
-});
+  if (pasteBtn) pasteBtn.disabled = isLoading;
+  if (statusEl) statusEl.textContent = isLoading ? t("processing") : "";
+}
+
+if (urlInput) {
+  urlInput.addEventListener("input", () => {
+    urlInput.classList.remove("input-error");
+  });
+  urlInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      if (downloadBtn && !downloadBtn.disabled) {
+        trackEvent("download_click", { method: "enter" });
+        handleDownload();
+      }
+    }
+  });
+}
+
+if (pasteBtn) {
+  pasteBtn.addEventListener("click", async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      if (urlInput) {
+        urlInput.value = text;
+        urlInput.classList.remove("input-error");
+      }
+    } catch {
+      showToast(t("clipboard"));
+    }
+  });
+}
+
+if (downloadBtn) {
+  downloadBtn.addEventListener("click", handleDownload);
+}
 
 async function copyToClipboard(text) {
   try {
