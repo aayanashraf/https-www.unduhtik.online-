@@ -1,4 +1,4 @@
-const path = require('path');
+﻿const path = require('path');
 const fs = require('fs');
 // Robust TikTok URL Sanitizer & Error Guard
 function sanitizeTikTokUrl(rawUrl) {
@@ -36,6 +36,7 @@ app.use((req, res, next) => {
   if (target) { return res.redirect(301, target); }
   next();
 });
+app.get('/blog.html', (req, res) => res.redirect(301, '/blog/'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ---------------------------------------------------------------
@@ -352,26 +353,11 @@ app.use('/blog', express.static(path.join(__dirname, 'public', 'blog')));
 
 
 
-app.get('/blog.html', (req, res) => {
-    try {
-        const rootPath = path.join(__dirname, 'blog.html');
-        const publicPath = path.join(__dirname, 'public', 'blog.html');
-        if (fs.existsSync(rootPath)) return res.sendFile(rootPath);
-        if (fs.existsSync(publicPath)) return res.sendFile(publicPath);
-        res.status(404).send('Blog main page not found');
-    } catch (err) {
-        console.error('Error serving blog list:', err);
-        res.status(500).send('Internal Server Error');
-    }
-});
 // Blog Express Routes
 app.get('/blog-download-mp3-tiktok.html', (req, res) => {
     res.sendFile('blog-download-mp3-tiktok.html', { root: __dirname });
 });
 
-app.get('/blog.html', (req, res) => {
-    res.sendFile('blog.html', { root: __dirname });
-});
 // Local ke liye listen kare, Vercel (serverless) ke liye export ho jaye
 if (require.main === module) {
   app.listen(PORT, () => {

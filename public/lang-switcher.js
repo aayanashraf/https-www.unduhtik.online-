@@ -93,7 +93,7 @@
   LANGS.forEach(function (l) {
     var li = document.createElement("li");
     var a = document.createElement("a");
-    a.href = l.u;
+    var alt = document.querySelector('link[rel="alternate"][hreflang="' + l.c + '"]'); a.href = alt ? alt.getAttribute("href") : l.u;
     a.setAttribute("lang", l.c);
     a.setAttribute("hreflang", l.c);
     if (l.c === cur.c) a.setAttribute("aria-current", "true");

@@ -1,0 +1,194 @@
+
+========== ar ==========
+-- HEADINGS --
+H2: أدوات مجانية
+H2: كيفية تحميل فيديوهات تيك توك
+H3: Salin Tautan
+H3: لصق الرابط
+H3: تحميل
+H2: Fitur Utama تحميلTik
+H2: تحميل Video TikTok Tanpa Watermark dengan تحميلTik
+H3: Mengapa Memilih تحميلTik?
+H3: تحميل Video HD dan Audio MP3
+H3: Bisa Dipakai di Semua Perangkat
+H2: تحميل فيديو تيك توك أونلاين مجاناً وبدون علامة مائية
+H2: Pertanyaan Umum
+-- GUIDE LINKS --
+/ar/tiktok-upload-date.html | FILE OK | 📅 معرفة تاريخ رفع فيديو تيك توك اعرف متى تم رفع فيديو تيك توك مع التاريخ والوقت من الرابط فقط. افتح →
+-- AVAILABLE LOCALIZED HTML PAGES --
+tiktok-upload-date.html
+
+========== en ==========
+-- HEADINGS --
+H2: Free Tools
+H2: How to Download TikTok Videos
+H3: Copy the Link
+H3: Paste the Link
+H3: Download
+H2: Key Features of UnduhTik
+H2: Download TikTok Videos Without Watermark with UnduhTik
+H3: Why Choose UnduhTik?
+H3: Download HD Video and MP3 Audio
+H3: Works on Every Device
+H2: Download Video TikTok Online, Free and Without Watermark
+H3: What you can save
+H3: Is it really free?
+H2: Frequently Asked Questions
+-- GUIDE LINKS --
+/en/tiktok-upload-date-checker.html | FILE OK | 📅 TikTok Upload Date Checker Find out when a TikTok video was posted, with date and time, from its link. Open tool →
+/en/tiktok-batch-downloader.html | FILE OK | 📥 Download Multiple Videos at Once Paste up to 10 TikTok links and get every result in one list. Open tool →
+-- AVAILABLE LOCALIZED HTML PAGES --
+tiktok-batch-downloader.html
+tiktok-upload-date-checker.html
+
+========== es ==========
+-- HEADINGS --
+H2: Herramientas gratis
+H2: Cómo Descargar Videos de TikTok
+H3: Copia el enlace
+H3: Pega el enlace
+H3: Descarga
+H2: Características de UnduhTik
+H2: Descarga Videos de TikTok Sin Marca de Agua con UnduhTik
+H3: ¿Por qué elegir UnduhTik?
+H3: Video HD y audio MP3
+H3: Funciona en todos los dispositivos
+H2: Descargar videos de TikTok online, gratis y sin marca de agua
+H2: Preguntas Frecuentes
+-- GUIDE LINKS --
+/es/fecha-de-subida-tiktok.html | FILE OK | 📅 Fecha de subida de un video de TikTok Descubre cuándo se subió un video de TikTok, con fecha y hora, solo con el enlace. Abrir →
+-- AVAILABLE LOCALIZED HTML PAGES --
+fecha-de-subida-tiktok.html
+
+========== fr ==========
+-- HEADINGS --
+H2: Outils gratuits
+H2: Comment Télécharger une Vidéo TikTok
+H3: Copiez le lien
+H3: Collez le lien
+H3: Téléchargez
+H2: Fonctionnalités d'UnduhTik
+H2: Téléchargez des Vidéos TikTok Sans Filigrane avec UnduhTik
+H3: Pourquoi choisir UnduhTik ?
+H3: Vidéo HD et audio MP3
+H3: Fonctionne sur tous les appareils
+H2: Télécharger des vidéos TikTok en ligne, gratuit et sans filigrane
+H2: Questions Fréquentes
+-- GUIDE LINKS --
+/fr/date-de-publication-tiktok.html | FILE OK | 📅 Date de publication d'une vidéo TikTok Découvrez quand une vidéo TikTok a été publiée, avec la date et l'heure, à partir du lien. Ouvrir →
+-- AVAILABLE LOCALIZED HTML PAGES --
+date-de-publication-tiktok.html
+
+========== hi ==========
+-- HEADINGS --
+H2: मुफ्त टूल
+H2: TikTok वीडियो कैसे डाउनलोड करें
+H3: Salin Tautan
+H3: लिंक पेस्ट करें
+H3: डाउनलोड
+H2: Fitur Utama डाउनलोडTik
+H2: डाउनलोड Video TikTok Tanpa Watermark dengan डाउनलोडTik
+H3: Mengapa Memilih डाउनलोडTik?
+H3: डाउनलोड Video HD dan Audio MP3
+H3: Bisa Dipakai di Semua Perangkat
+H2: TikTok वीडियो ऑनलाइन डाउनलोड करें, मुफ्त और बिना वॉटरमार्क
+H2: Pertanyaan Umum
+-- GUIDE LINKS --
+/hi/tiktok-upload-date.html | FILE OK | 📅 TikTok वीडियो अपलोड डेट चेकर सिर्फ़ लिंक से जानें कि TikTok वीडियो कब अपलोड हुआ, तारीख़ और समय के साथ। खोलें →
+-- AVAILABLE LOCALIZED HTML PAGES --
+tiktok-upload-date.html
+
+========== ms ==========
+-- HEADINGS --
+H2: Alat percuma
+H2: Cara Muat Turun Video TikTok
+H3: Salin pautan
+H3: Tampal pautan
+H3: Muat turun
+H2: Ciri-ciri Utama UnduhTik
+H2: Muat Turun Video TikTok Tanpa Watermark dengan UnduhTik
+H3: Mengapa Pilih UnduhTik?
+H3: Video HD dan Audio MP3
+H3: Berfungsi di Semua Peranti
+H2: Muat turun video TikTok dalam talian, percuma dan tanpa watermark
+H2: Soalan Lazim
+-- GUIDE LINKS --
+/ms/semak-tarikh-muat-naik-tiktok.html | FILE OK | 📅 Semak tarikh muat naik video TikTok Ketahui bila video TikTok dimuat naik, lengkap dengan tarikh dan masa, daripada pautannya. Buka alat →
+-- AVAILABLE LOCALIZED HTML PAGES --
+semak-tarikh-muat-naik-tiktok.html
+
+========== pt ==========
+-- HEADINGS --
+H2: Ferramentas grátis
+H2: Como Baixar Vídeos do TikTok
+H3: Copie o link
+H3: Cole o link
+H3: Baixe
+H2: Recursos do UnduhTik
+H2: Baixe Vídeos do TikTok Sem Marca d'Água com o UnduhTik
+H3: Por que escolher o UnduhTik?
+H3: Vídeo HD e áudio MP3
+H3: Funciona em qualquer dispositivo
+H2: Baixar vídeos do TikTok online, grátis e sem marca d'água
+H2: Perguntas Frequentes
+-- GUIDE LINKS --
+/pt/data-de-upload-tiktok.html | FILE OK | 📅 Data de upload de vídeo do TikTok Descubra quando um vídeo do TikTok foi postado, com data e hora, só com o link. Abrir →
+-- AVAILABLE LOCALIZED HTML PAGES --
+data-de-upload-tiktok.html
+
+========== th ==========
+-- HEADINGS --
+H2: เครื่องมือฟรี
+H2: วิธีดาวน์โหลดวิดีโอ TikTok
+H3: คัดลอกลิงก์
+H3: วางลิงก์
+H3: ดาวน์โหลด
+H2: คุณสมบัติหลักของ UnduhTik
+H2: ดาวน์โหลดวิดีโอ TikTok ไม่มีลายน้ำด้วย UnduhTik
+H3: ทำไมต้อง UnduhTik?
+H3: วิดีโอ HD และเสียง MP3
+H3: ใช้ได้กับทุกอุปกรณ์
+H2: ดาวน์โหลดวิดีโอ TikTok ออนไลน์ ฟรี ไม่มีลายน้ำ
+H2: คำถามที่พบบ่อย
+-- GUIDE LINKS --
+/th/tiktok-upload-date.html | FILE OK | 📅 เช็กวันที่อัปโหลดวิดีโอ TikTok ดูว่าวิดีโอ TikTok ถูกอัปโหลดเมื่อไหร่ พร้อมวันที่และเวลา จากลิงก์เท่านั้น เปิดใช้งาน →
+-- AVAILABLE LOCALIZED HTML PAGES --
+tiktok-upload-date.html
+
+========== tr ==========
+-- HEADINGS --
+H2: Ücretsiz araçlar
+H2: TikTok Videosu Nasıl İndirilir?
+H3: Bağlantıyı kopyalayın
+H3: Bağlantıyı yapıştırın
+H3: İndirin
+H2: UnduhTik Özellikleri
+H2: UnduhTik ile TikTok Videolarını Filigransız İndirin
+H3: Neden UnduhTik?
+H3: HD Video ve MP3 Ses
+H3: Her Cihazda Çalışır
+H2: TikTok videolarını çevrimiçi, ücretsiz ve filigransız indirin
+H2: Sık Sorulan Sorular
+-- GUIDE LINKS --
+/tr/tiktok-yukleme-tarihi.html | FILE OK | 📅 TikTok video yükleme tarihi sorgulama Bir TikTok videosunun ne zaman yüklendiğini tarih ve saatle bağlantıdan öğrenin. Aç →
+-- AVAILABLE LOCALIZED HTML PAGES --
+tiktok-yukleme-tarihi.html
+
+========== vi ==========
+-- HEADINGS --
+H2: Công cụ miễn phí
+H2: Cách Tải Video TikTok
+H3: Sao chép liên kết
+H3: Dán liên kết
+H3: Tải xuống
+H2: Tính năng nổi bật của UnduhTik
+H2: Tải Video TikTok Không Watermark với UnduhTik
+H3: Vì sao chọn UnduhTik?
+H3: Video HD và âm thanh MP3
+H3: Dùng trên mọi thiết bị
+H2: Tải video TikTok online, miễn phí và không logo
+H2: Câu Hỏi Thường Gặp
+-- GUIDE LINKS --
+/vi/xem-ngay-dang-tiktok.html | FILE OK | 📅 Xem ngày đăng video TikTok Xem video TikTok được đăng khi nào, kèm ngày và giờ, chỉ từ liên kết. Mở công cụ →
+-- AVAILABLE LOCALIZED HTML PAGES --
+xem-ngay-dang-tiktok.html

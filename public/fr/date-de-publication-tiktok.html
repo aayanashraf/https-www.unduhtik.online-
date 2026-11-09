@@ -159,7 +159,26 @@ btn.addEventListener('click',run);
 inp.addEventListener('keydown',function(e){if(e.key==='Enter'){run();}});
 inp.addEventListener('paste',function(){setTimeout(run,50);});
 cp.addEventListener('click',function(){var t=T.up+': '+loc.textContent+' | UTC: '+utc.textContent+' ('+ago.textContent+')';var done=function(){var o=cp.textContent;cp.textContent=T.c2;setTimeout(function(){cp.textContent=T.c;},1500);ev('upload_date_copy');};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){});}});
-})();</script></main>
+})();</script><!-- UT-CONTENT:START -->
+<section class="guide-section">
+<h2>Pourquoi l'identifiant de la vidéo indique la date</h2>
+<p>Les identifiants des vidéos TikTok sont attribués dans l'ordre chronologique. La première partie du nombre contient l'heure de création au format Unix (le nombre de secondes écoulées depuis le 1er janvier 1970). Cet outil extrait cette partie et la convertit en date lisible. Le calcul se fait dans votre navigateur, sans contacter TikTok.</p>
+</section>
+<section class="guide-section">
+<h2>Ce que signifie le résultat</h2>
+<p>Le résultat indique le moment où la vidéo a été créée. Vous verrez deux heures : celle de votre appareil, qui suit votre fuseau horaire, et l'heure UTC, identique pour tout le monde. La ligne « Il y a combien de temps » se calcule à partir de maintenant, elle change donc à chaque vérification.</p>
+<p>Le résultat n'affiche ni les vues, ni les likes, ni les informations du compte. L'outil lit uniquement la date enregistrée dans l'identifiant.</p>
+</section>
+<section class="guide-section">
+<h2>Quand la date semble incorrecte</h2>
+<p>Si un message indique que l'identifiant ne donne pas de date plausible, vérifiez que vous avez copié l'identifiant ou l'adresse complète de la vidéo, et non un lien court. Une vidéo modifiée ou republiée peut afficher une date plus ancienne, car l'identifiant correspond à la création d'origine.</p>
+</section>
+<section class="guide-section">
+<h2>Confidentialité</h2>
+<p>La vérification se fait dans votre navigateur. La date est calculée sur votre appareil à partir de l'identifiant que vous collez. Ne collez pas d'informations personnelles dans la zone de saisie.</p>
+</section>
+<!-- UT-CONTENT:END -->
+</main>
 
   <footer class="site-footer">
     <div class="footer-inner">
