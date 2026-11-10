@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Download Multiple TikTok Videos at Once (Batch) | UnduhTik</title>
+  <meta name="description" content="Paste up to 10 TikTok links at once and get every result in one list: video without watermark, MP3 and captions. Free, in your browser.">
+
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#3b1d8f" id="metaTheme" />
+  <meta name="google-site-verification" content="akpjd7BQ0y4UCrOA7Lfc-ucpMtw77FrMHU55470X3Fw" />
+  <meta name="msvalidate.01" content="893C63E5E09CE902927106451333BA43" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="UnduhTik" />
+  <meta property="og:title" content="Download Multiple TikTok Videos at Once (Batch) | UnduhTik">
+  <meta property="og:description" content="Paste up to 10 TikTok links at once and get every result in one list: video without watermark, MP3 and captions. Free, in your browser.">
+  <meta property="og:url" content="https://www.unduhtik.online/en/tiktok-batch-downloader.html">
+  <meta property="og:image" content="https://www.unduhtik.online/og-image.png" />
+  <meta property="og:image:alt" content="UnduhTik - Download TikTok videos without watermark" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="id_ID" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free TikTok Video Downloader – No Watermark, HD &amp; MP3 | UnduhTik" />
+  <meta name="twitter:description" content="Download TikTok videos without watermark for free, fast, and with no app to install." />
+  <meta name="twitter:image" content="https://www.unduhtik.online/og-image.png" />
+
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- Theme: follow the device setting (or saved choice) before first paint, so there is no flash -->
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('unduhtik_theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') {
+        t = (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+      var m = document.getElementById('metaTheme');
+      if (m) m.setAttribute('content', t === 'dark' ? '#0b1220' : '#d6e6f7');
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Safety styles: kaam karte hain chahe style.css mein ye classes hon ya na hon -->
+  <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.hidden{display:none!important}</style>
+
+    <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/theme.css" />
+  <link rel="stylesheet" href="/pro.css?v=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HS6KJ4V1CL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HS6KJ4V1CL');
+    window.track = function (name, params) {
+      try { if (window.gtag) gtag('event', name, params || {}); } catch (e) {}
+    };
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <script src="/pwa.js" defer></script>
+  <script src="/features.js?v=1" defer></script>
+  <script src="/features2.js?v=1" defer></script>
+  <script src="/features3.js?v=1" defer></script>
+  <script src="/features4.js?v=1" defer></script>
+  <link rel="canonical" href="https://www.unduhtik.online/en/tiktok-batch-downloader.html">
+  <link rel="alternate" hreflang="id" href="https://www.unduhtik.online/antrean-download-tiktok.html">
+  <link rel="alternate" hreflang="en" href="https://www.unduhtik.online/en/tiktok-batch-downloader.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.unduhtik.online/antrean-download-tiktok.html">
+</head>
+<body>
+
+  <div id="inAppWarning" class="in-app-warning hidden" role="alert" data-nosnippet>
+    <span>You're viewing this inside the TikTok/Instagram app. Downloads may fail. Tap the (⋮) menu and choose 'Open in Browser'.</span>
+    <button type="button" id="closeInAppWarning" aria-label="Close warning">×</button>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/en/" class="logo" aria-label="UnduhTik - Home">
+        <svg class="logo-svg" width="36" height="36" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="UnduhTik logo"><defs><linearGradient id="utg" gradientUnits="userSpaceOnUse" x1="8" y1="6" x2="40" y2="42"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#2f7bff"/></linearGradient></defs><path d="M11 7v19a13 13 0 0 0 26 0V7" fill="none" stroke="url(#utg)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 9v19M17 21l7 7 7-7" fill="none" stroke="url(#utg)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="logo-text"><span class="b-u">Unduh</span><span class="b-t">Tik</span></span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Main menu">
+        <a href="/en/">Home</a>
+        <a href="/en/#how-to-download">How to Download</a>
+        <a href="/en/#faq">FAQ</a>
+        <a href="/en/blog/">Blog</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+
+      <div class="header-right">
+        <select id="langSwitcher" aria-label="Select Language" onchange="if(this.value){window.location.href = window.location.origin + this.value;}">
+        <option value="/">🌐 ID - Bahasa Indonesia</option>
+        <option value="/en/" selected>🌐 EN - English</option>
+        <option value="/es/">🌐 ES - Español</option>
+        <option value="/fr/">🌐 FR - Français</option>
+        <option value="/ms/">🌐 MS - Bahasa Melayu</option>
+        <option value="/pt/">🌐 PT - Português</option>
+        <option value="/tr/">🌐 TR - Türkçe</option>
+        <option value="/vi/">🌐 VI - Tiếng Việt</option>
+        <option value="/th/">🌐 TH - ไทย</option>
+        <option value="/hi/">🌐 HI - हिन्दी</option>
+        <option value="/ar/">🌐 AR - العربية</option>
+      </select>
+        <button type="button" class="theme-toggle" id="themeToggle" data-track="theme_toggle" aria-label="Switch light/dark theme" title="Switch light/dark theme"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+        <button type="button" class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-controls="mainNav" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="ad-slot ad-header" aria-label="Advertisement">
+    <span class="ad-label">Advertisement</span>
+  </div>
+
+  <main class="page-content"><h1>Download Multiple TikTok Videos at Once</h1><p>This TikTok batch downloader lets you process up to 10 individual video links in one session. UnduhTik processes them one by one and shows all results in a single list.</p><div class="tool-card"><textarea id="bqInput" dir="ltr" rows="6" spellcheck="false" autocomplete="off"></textarea><button type="button" id="bqGo"></button><p id="bqMsg" role="status" aria-live="polite"></p><ul id="bqList" class="bq-list"></ul><div class="bq-tools"><button type="button" id="bqAll" class="ctu-alt" style="display:none"></button> <button type="button" id="bqCap" class="ctu-alt" style="display:none"></button></div></div><article><h2>How to use it</h2>
+<ol><li>Copy the links of several TikTok videos and paste them all in the box above, one link per line.</li><li>Click Process All Links and wait. Links are processed one at a time to keep the service stable.</li><li>Each video appears in the list with Download Video and MP3 buttons. With two or more videos you also get a Download all videos button.</li></ol>
+<h2>Good to know</h2>
+<ul><li>Up to 10 links at a time.</li><li>Only public videos can be processed. Private or deleted videos fail and are marked in the list.</li><li>If a link is a photo slideshow, a button opens it on the main page.</li><li>Download all videos starts several downloads one after another. Your browser may ask for permission to download multiple files, so choose Allow.</li><li>The list is not stored on our servers and disappears when you close the page.</li></ul>
+<h2>FAQ</h2>
+<p><strong>Why one at a time?</strong><br>So the service is not overwhelmed and results stay stable for everyone.</p>
+<p><strong>Is it free?</strong><br>Yes, with no sign-up.</p>
+<p>For a single video, use the <a href="/en/">UnduhTik main page</a>. Videos belong to their creators, so use them for personal purposes and ask for permission before sharing them again.</p></article><script>(function(){
+var T={"ph":"Paste TikTok links here, one per line (maximum 10)","go":"Process All Links","wait":"Waiting","work":"Processing","ok":"Ready","slide":"Photo slideshow","video":"Download Video","mp3":"MP3","openSlide":"Open photos","busy":"Server is busy, waiting a moment...","busy2":"Server is busy. Please try again shortly.","fail":"Could not process this link.","neterr":"Connection problem.","none":"Paste at least one TikTok link.","max":"Maximum 10 links at a time, the rest were ignored.","all":"Download all videos","cap":"Copy all captions","copied":"Copied!","done":"Done: {ok} of {n} succeeded."};
+var ta=document.getElementById('bqInput'),go=document.getElementById('bqGo'),msg=document.getElementById('bqMsg'),list=document.getElementById('bqList'),all=document.getElementById('bqAll'),cap=document.getElementById('bqCap');
+if(!ta||!go){return;}
+var MAX=10,busy=false,items=[];
+ta.placeholder=T.ph;go.textContent=T.go;cap.textContent=T.cap;
+function ev(n,p){try{if(typeof gtag==='function'){gtag('event',n,p||{});}}catch(e){}}
+function sleep(ms){return new Promise(function(r){setTimeout(r,ms);});}
+function extract(s){var re=/https?:\/\/[^\s"'<>]*tiktok\.com[^\s"'<>]*/gi,m,out=[],seen={};while((m=re.exec(s||''))!==null){var u=m[0].replace(/[).,;!?]+$/,'');try{var o=new URL(u);o.search='';o.hash='';u=o.toString();}catch(e){}if(!seen[u]){seen[u]=1;out.push(u);}}return out;}
+function safe(s){var r=(s||'').replace(/[^\w\- ]+/g,'').trim().slice(0,40);return r||'tiktok';}
+function dl(url,name,type){return '/api/proxy-download?url='+encodeURIComponent(url)+'&filename='+encodeURIComponent(name)+'&type='+type;}
+function btn(label,href){var a=document.createElement('a');a.className='bq-b';a.href=href;a.textContent=label;return a;}
+function row(u){var li=document.createElement('li');li.className='bq-row';var tt=document.createElement('strong');tt.className='bq-t';tt.textContent=u;var st=document.createElement('span');st.className='bq-st';st.textContent=T.wait;var act=document.createElement('span');act.className='bq-act';li.appendChild(tt);li.appendChild(st);li.appendChild(act);list.appendChild(li);return {u:u,li:li,tt:tt,st:st,act:act,data:null,file:''};}
+async function fetchOne(it){
+  for(var a=0;a<3;a++){
+    var r;
+    try{r=await fetch('/api/download',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url:it.u})});}
+    catch(e){if(a<2){await sleep(1500);continue;}throw new Error(T.neterr);}
+    var j=null;try{j=await r.json();}catch(e){}
+    if(r.ok&&j&&j.success){return j;}
+    if(r.status===429||r.status===503){it.st.textContent=T.busy;await sleep(a===0?15000:30000);continue;}
+    throw new Error((j&&j.error)||T.fail);
+  }
+  throw new Error(T.busy2);
+}
+async function run(){
+  if(busy){return;}
+  var urls=extract(ta.value);
+  if(!urls.length){msg.textContent=T.none;return;}
+  msg.textContent='';
+  if(urls.length>MAX){urls=urls.slice(0,MAX);msg.textContent=T.max;}
+  busy=true;go.disabled=true;list.innerHTML='';items=[];all.style.display='none';cap.style.display='none';
+  ev('batch_start',{count:urls.length});
+  var okc=0;
+  for(var i=0;i<urls.length;i++){
+    var it=row(urls[i]);items.push(it);it.st.textContent=T.work+' ('+(i+1)+'/'+urls.length+')';
+    try{
+      var d=await fetchOne(it);it.data=d;
+      it.tt.textContent=(d.title||d.author||it.u).slice(0,90);
+      var name=safe(d.title)+'_'+(i+1);
+      if(d.type==='slideshow'){it.st.textContent=T.slide;var lk=btn(T.openSlide,'/?url='+encodeURIComponent(it.u));it.act.appendChild(lk);}
+      else{it.st.textContent=T.ok;if(d.noWatermarkUrl){it.file=dl(d.noWatermarkUrl,name,'video');it.act.appendChild(btn(T.video,it.file));}}
+      if(d.musicUrl){it.act.appendChild(btn(T.mp3,dl(d.musicUrl,name,'audio')));}
+      okc++;
+    }catch(e){it.st.textContent=e.message||T.fail;it.li.className+=' bq-err';}
+    if(i<urls.length-1){await sleep(1500);}
+  }
+  msg.textContent=T.done.replace('{ok}',okc).replace('{n}',urls.length);
+  var nf=items.filter(function(x){return x.file;}).length;
+  if(nf>=2){all.textContent=T.all+' ('+nf+')';all.style.display='inline-block';}
+  if(items.some(function(x){return x.data&&x.data.title;})){cap.style.display='inline-block';}
+  busy=false;go.disabled=false;ev('batch_done',{ok:okc,total:urls.length});
+}
+async function downAll(){
+  var files=items.filter(function(x){return x.file;});
+  for(var i=0;i<files.length;i++){var a=document.createElement('a');a.href=files[i].file;a.style.display='none';document.body.appendChild(a);a.click();document.body.removeChild(a);await sleep(1500);}
+  ev('batch_download_all',{count:files.length});
+}
+function copyCaps(){
+  var t=items.filter(function(x){return x.data;}).map(function(x){return (x.data.title||'').trim();}).filter(Boolean).join('\n\n');
+  if(!t){return;}
+  var done=function(){cap.textContent=T.copied;setTimeout(function(){cap.textContent=T.cap;},1500);ev('batch_copy_captions');};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){});}
+}
+go.addEventListener('click',run);all.addEventListener('click',downAll);cap.addEventListener('click',copyCaps);
+})();</script><!-- UT-CONTENT:START -->
+<section class="guide-section">
+<h2>Good to know</h2>
+<ul>
+<li><strong>Up to 10 links at a time.</strong> If you paste more, the first 10 are processed and the rest are ignored. You will see a notice when this happens.</li>
+<li><strong>One link after another.</strong> Each link is processed in turn with a short pause between them, so a batch of 10 takes a little while. Keep the page open until the list shows every result.</li>
+<li><strong>Automatic retry.</strong> If the server is busy, the tool waits and tries again a few times before showing an error for that link.</li>
+<li><strong>Photo slideshows.</strong> A slideshow shows an "Open photos" button instead of a video download, because its photos are saved from the single-post page.</li>
+<li><strong>Video and MP3 buttons.</strong> Each video result shows a Download Video button (without watermark when available) and an MP3 button when audio is available. File names include the video title and its position in the list.</li>
+</ul>
+</section>
+<section class="guide-section">
+<h2>Tips for best results</h2>
+<p>Paste one link per line. Check that each video is public, because private videos cannot be processed. If a link fails, copy it again from the TikTok app and paste it on its own line. Large batches work best on a stable Wi-Fi connection.</p>
+</section>
+<section class="guide-section">
+<h2>Use the files responsibly</h2>
+<p>Videos belong to their creators. Use the downloaded files for personal viewing, and ask the creator's permission before reposting or using them commercially. For copyright concerns, see our <a href="/dmca.html">copyright notice</a>.</p>
+</section>
+<!-- UT-CONTENT:END -->
+</main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-text"><span class="b-u">Unduh</span><span class="b-t">Tik</span></span>
+        <p>UnduhTik is not affiliated with TikTok. We do not store any videos on our servers.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer"><a href="/en/tiktok-upload-date-checker.html">TikTok Upload Date Checker</a> 
+        <a href="/download-mp3-tiktok.html">Download TikTok MP3</a>
+        <a href="/about.html">About Us</a>
+        <a href="/cara-download-tiktok-iphone.html">How to Download on iPhone</a>
+        <a href="/cara-download-tiktok-android-pc.html">How to Download on Android &amp; PC</a>
+        <a href="/download-foto-slideshow-tiktok.html">Download Photo Slideshows</a>
+        <a href="/video-tiktok-tidak-bisa-diunduh.html">Video Won't Download?</a>
+        <a href="/panduan.html">Guides</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/dmca.html">Copyright Disclaimer</a>
+        <a href="/contact.html">Contact Us</a>
+      </nav>
+      <p class="footer-copy">© 2026 UnduhTik. All rights reserved.</p>
+    </div>
+  <p class="mt-2 text-sm text-gray-400">Contact: <a href="mailto:support@unduhtik.online" class="underline hover:text-white transition">support@unduhtik.online</a></p>
+</footer>
+
+  <script>
+    /* Event tracking otomatis untuk semua elemen yang punya atribut data-track */
+    document.addEventListener('click', function (e) {
+      var el = e.target.closest ? e.target.closest('[data-track]') : null;
+      if (el) track(el.getAttribute('data-track'));
+    });
+    /* Ganti bahasa: catat event, lalu buka halaman bahasa yang dipilih */
+    var _ls = document.getElementById('langSwitcher');
+    if (_ls) _ls.addEventListener('change', function () {
+      track('language_change', { language: _ls.value === '/' ? 'id' : 'en' });
+      var target = _ls.value;
+      setTimeout(function () { location.href = target; }, 150);
+    });
+  </script>
+  <script src="/script.js" defer></script>
+  <script src="/lang-switcher.js?v=1"></script>
+</body>
+</html>
+
+
