@@ -99,12 +99,15 @@ main{max-width:760px;margin:0 auto;padding:24px 20px}
         <svg class="logo-svg" width="36" height="36" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo UnduhTik"><defs><linearGradient id="utg" gradientUnits="userSpaceOnUse" x1="8" y1="6" x2="40" y2="42"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#2f7bff"/></linearGradient></defs><path d="M11 7v19a13 13 0 0 0 26 0V7" fill="none" stroke="url(#utg)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 9v19M17 21l7 7 7-7" fill="none" stroke="url(#utg)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <span class="logo-text"><span class="b-u">Unduh</span><span class="b-t">Tik</span></span>
       </a>
-      <nav class="main-nav">
+      <nav class="main-nav" id="panduan-main-nav">
         <a href="/">Beranda</a>
         <a href="/#cara-unduh">Cara Unduh</a>
         <a href="/#faq">FAQ</a>
         <a href="contact.html">Kontak</a>
       </nav>
+      <div class="header-right">
+        <button class="hamburger" type="button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="panduan-main-nav">☰</button>
+      </div>
     </div>
   </header>
 <main>
@@ -160,9 +163,33 @@ main{max-width:760px;margin:0 auto;padding:24px 20px}
         <a href="dmca.html">Penolakan Hak Cipta</a>
         <a href="contact.html">Hubungi Kami</a>
       </div>
-      <p class="footer-copy">© 2026 UnduhTik. All rights reserved.</p>
+      <p class="footer-copy">Â© 2026 UnduhTik. All rights reserved.</p>
     </div>
   </footer>
   <script src="/lang-switcher.js?v=1"></script>
+<script id="panduan-menu-script">
+(function () {
+  const button = document.querySelector(".hamburger");
+  const nav = document.getElementById("panduan-main-nav");
+  if (!button || !nav) return;
+  function closeMenu() {
+    nav.classList.remove("open");
+    button.setAttribute("aria-expanded", "false");
+  }
+  button.addEventListener("click", function () {
+    const isOpen = nav.classList.toggle("open");
+    button.setAttribute("aria-expanded", String(isOpen));
+  });
+  nav.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", closeMenu);
+  });
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") closeMenu();
+  });
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 720) closeMenu();
+  });
+})();
+</script>
 </body>
 </html>
