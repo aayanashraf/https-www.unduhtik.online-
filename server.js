@@ -36,6 +36,12 @@ app.use((req, res, next) => {
   if (target) { return res.redirect(301, target); }
   next();
 });
+// Redirect invalid blog legal URLs to the real root legal pages
+app.use((req, res, next) => {
+  const match = req.path.match(/^\/blog\/(?:.*\/)?(privacy|terms|dmca|contact)\.html$/i);
+  if (!match) return next();
+  return res.redirect(301, `/${match[1].toLowerCase()}.html`);
+});
 app.get('/blog.html', (req, res) => res.redirect(301, '/blog/'));
 app.use(express.static(path.join(__dirname, 'public')));
 
